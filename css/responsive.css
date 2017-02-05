@@ -1,0 +1,301 @@
+        /*===============responsive styles===============*/
+        
+        #menu {
+            display: none;
+        }
+        /*---media query to center fixed nav bar with screens greater than 1300px*/
+        
+        @media only screen and (min-width: 1300px) {
+            .nav,
+            #logo {
+                left: 50%;
+                margin-left: -650px;
+            }
+            .cat2-list a {
+                width: 450px;
+            }
+            div.back-to-top {
+                left: 12%;
+            }
+        }
+
+        /*================max-width 928 px*/
+        
+        @media only screen and (max-width: 928px) {
+            #hero {
+                background: url(../images/BMB_WebBanner960T.png) no-repeat white;
+                background-position: center top 25px;
+            }
+            #logo {
+                height: 80px;
+            }
+            #portal-menu.submenu {
+                left: 35%;
+            }
+            .cat2 a {
+                width: 250px;
+            }
+            main {
+                padding-top: 145px;
+            }
+            .enter {
+                padding-top: 40%;
+            }
+            .enter h2 {
+                font-size: 100%;
+            }
+            .nav {
+                top: 80px;
+            }
+        }
+        
+        @media only screen and (max-width: 790px) {
+            #hero {
+                background: url(../images/BMB_WebBanner750.png) no-repeat white;
+                background-position: center top 25px;
+            }
+            .enter {
+                padding-top: 36%;
+            }
+            .enter h2 {
+                font-size: 90%;
+            }
+            .enter h2:after {
+                content: "";
+            }
+        }
+        /**/
+        /*=======max width 678px==============*/
+        
+        @media only screen and (max-width: 678px) {
+            body {
+                width: 100%;
+                font-size: 100%;
+            }
+            main {
+                padding-top: 112px;
+                width: 95%;
+            }
+            .nav {
+                -webkit-transform: translate(-900px, 0);
+                transform: translate(-900px, 0);
+                /*         Optionally, we animate the drawer. */
+                transition: transform .5s ease;
+                z-index: 10;
+                width: 25%;
+            }
+            .nav ul {
+                display: inline-block;
+            }
+            #menu {
+                display: inline-block;
+                background: #815397;
+                position: fixed;
+                top: 56px;
+                left: 0;
+                width: 100%;
+            }
+            /*--place menu at top for first page------*/
+            #first-page #menu {
+                top: 0px;
+            }
+            #menu svg {
+                width: 41px;
+                fill: white;
+                padding-left: 4%;
+            }
+            #menu svg:hover {
+                fill: rgb(129, 130, 133);
+            }
+            /*========styling for the menu-respond class on hamburger-------*/
+            /* -----------offset so sections land below header-------*/
+            .offset {
+                display: block;
+                content: "";
+                height: 100px;
+                /* Give height of your fixed element */
+                /* Give negative margin of your fixed element */
+                margin-top: -100px;
+                visibility: hidden;
+            }
+            /*-------dynamic menu styling----------------------*/
+            .menu-respond {
+                position: fixed;
+                top: 101px;
+                width: 140px;
+                transition: transform 0 .5s ease;
+                -webkit-transform: translate(0px, 0px);
+                transform: translate(0px, 0px);
+                /*         Optionally, we animate the drawer. */
+            }
+            /*----side menu fits below logo and hamburger for portal page---*/
+            #first-page .menu-respond {
+                top: 45px;
+            }
+            .menu-respond ul li a,
+            .nav .submenu-sm li a {
+                font-size: 1.5em;
+                line-height: 2em;
+            }
+            .menu-respond > ul > li:hover,
+            .menu-respond > ul > li:focus {
+                background: #D8C1E3;
+            }
+            .nav .smSubmenuLi:after {
+                content: "▶";
+            }
+            .nav .smSubmenuLi {
+                color: white;
+            }
+            .nav .submenu-sm {
+                display: block;
+                position: absolute;
+                background: #815397;
+                top: 36px;
+                left: 140px;
+                z-index: 2000;
+            }
+            #hero {
+                background: url(../images/BMB_WebBannerHead_750.png) no-repeat white;
+                background-position: center top 45px;
+                background-size: contain;
+            }
+            .enter {
+                display: block;
+                padding-top: 40%;
+                width: 100%;
+            }
+            .enter h2 {
+                display: block;
+                margin-right: 0;
+            }
+            .door {
+                display: block;
+                background: url(../images/OpenDoor_25p.png) no-repeat;
+                background-size: contain;
+                background-position: center top;
+                min-width: 50px;
+                width: 50px;
+                height: 80px;
+                padding: 2%;
+                margin: 1em auto;
+                border-radius: 10%;
+                -webkit-box-shadow: 8px 8px 9px 0px rgba(92, 92, 92, 1);
+                -moz-box-shadow: 8px 8px 9px 0px rgba(92, 92, 92, 1);
+                box-shadow: 8px 8px 9px 0px rgba(92, 92, 92, 1);
+            }
+            .door:hover {
+                background: url(../images/OpenDoor_25p.png) no-repeat;
+                background-size: contain;
+                background-position: center center;
+                -webkit-box-shadow: 8px 8px 9px 0px #0285BF;
+                -moz-box-shadow: 8px 8px 9px 0px #0285BF;
+                box-shadow: 8px 8px 9px 0px #0285BF;
+            }
+            #logo, .logo-pic1 #logo, .logo-pic2 #logo, .logo-pic3 #logo {
+                background: url(../images/BMB_logo_no_tag_25p.png) no-repeat;
+                height: 56px;
+                background-position: top center;
+                width: 100%;
+                background-color: white;
+                -webkit-animation: none;
+                -moz-animation: none;
+                -o-animation: none;
+                animation: none;
+            }
+            .brown-page main {
+                width: 100%;
+            }
+            /*------------about us styles--------------------*/
+            .us {
+                width: 90%;
+            }
+            blockquote {
+                width: 75%;
+                font-size: 100%;
+            }
+            
+            .bio {
+                width: 100%;
+                margin: auto;
+                margin-top: 0;
+                -moz-box-shadow: none;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                border: none;
+            }
+            .bio p {
+                padding-right: .5em;
+                padding-left: .5em;
+            }
+            
+            .bio p:first-of-type {
+                margin-left: 0;
+            }
+            
+            #deb, #kristin {
+                background: none;
+            }
+            
+            .header {
+                position: relative;
+                display: block;
+                padding: 1em 0 0;
+                margin: auto;
+            }
+            
+            .us-image {
+                z-index: 1000;
+                position: relative;
+                z-index: 1;
+            }
+            
+            #deb .us-img, #kristin .us-img {
+                display: block;
+                margin: auto;
+            }
+            
+            .titles{
+                position: relative;
+                margin: auto;
+                padding-top: 103px;
+                margin-top: -100px;
+                background: rgba(0,0,0, .3);
+                z-index: -1;
+            }
+            
+            .titles h2, .titles h3 {
+                text-align: center;
+                padding: 0;
+                margin: 0;
+                background: none;
+            }
+            
+            /*-----------testimonial sytles*/
+            #carousel {
+                min-height: 190px;
+            }
+            .t-carousel {
+                width: 95%;
+            }
+            .t-wrapper {
+                width: 100%;
+            }
+            .div-back-top {
+                font-size: 100%;
+            }
+            
+            /*-------------form styles-------------*/
+            .form-entry {
+                display: block;
+            }
+            
+            /*------------footer styles------------*/
+            
+            footer {
+                display: block;
+                padding: 2% 0;
+            }
+            
+        }
+        /*end of max-width: 678px media query*/

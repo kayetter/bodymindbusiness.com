@@ -1,0 +1,614 @@
+/*
+Orange #E47825, CMYK 7-64-100-0
+Blue #0285BF CMYK 83-28-5-0
+Brown #946E4A CMYK 36-53-76-17
+Purple #815397 CMYK 50-75-0-10
+grey rgb(129, 130, 133)
+
+*/
+
+
+/*==============web fonts===================*/
+
+@charset "utf-8";
+
+/*-----------------Angelina web font------*/
+
+@font-face {
+    font-family: 'angelina';
+    src: url('../web_fonts/angelina.eot');
+    src: local('angelina'), url('../web_fonts/angelina.woff') format('woff'), url('../web_fonts/angelina.ttf') format('truetype');
+}
+
+
+
+/*limited reset*/
+
+html,
+body,
+div,
+section,
+main,
+article,
+aside,
+header,
+hgroup,
+footer,
+nav,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+address,
+time,
+span,
+em,
+strong,
+img,
+ol,
+ul,
+li,
+figure,
+canvas,
+video,
+th,
+td,
+tr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font: inherit;
+    z-index: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/*html5 display rule*/
+
+address,
+article,
+main,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+menu,
+nav,
+section,
+summary {
+    display: block;
+    position: relative;
+}
+
+
+/*============================Navigation styles================================*/
+
+.nav {
+    max-width: 1300px;
+    position: fixed;
+    top: 100px;
+    text-align: center;
+    width: 100%;
+    background: #815397;
+    z-index: 2000;
+}
+
+
+/*----placing first page nav element at top----*/
+
+#first-page .nav {
+    top: 0;
+}
+
+
+/*---remove logo from front page-----*/
+
+#first-page #logo {
+    display: none;
+}
+
+#logo {
+    width: 100%;
+    max-width: 1300px;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    background: url("../images/BMB_Web_MiniBanner1%20(1).png") no-repeat white;
+    background-position: center top;
+    background-size: contain;
+    margin: 0;
+    z-index: 2000;
+}
+
+.logo-pic2 #logo {
+    background: url("../images/BMB_Web_MiniBanner2%20(1).png") white no-repeat;
+    background-position: center top;
+    background-size: contain;
+}
+
+.logo-pic3 #logo {
+    background: url(../images/Back2Back_AboutUsBanner.png) black no-repeat;
+    background-position: center top;
+    background-size: contain;
+}
+
+.nav ul {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+.nav ul li {
+    width: 140px;
+    align-items: center;
+    line-height: 2;
+    transition: background 1s linear;
+}
+
+.nav ul li a,
+.nav .submenu li a {
+    color: white;
+    width: 100%;
+    font-size: 110%;
+    font-family: 'angelina';
+    transition: all .15s linear;
+    line-height: 1.5;
+}
+
+.nav ul li a:hover {
+    color: black;
+}
+
+.nav ul li:hover {
+    background: #D8C1E3;
+}
+
+
+/*---------sub menu navigation-------------*/
+
+.nav ul li > ul {
+    display: none;
+}
+
+.nav .submenu-li:after {
+    content: "▼";
+    color: white;
+    font-size: 70%;
+    padding-left: .25em;
+    vertical-align: baseline;
+    color: white;
+    cursor: pointer;
+}
+
+.nav .submenu {
+    position: absolute;
+    left: 55%;
+    top: 46px;
+    display: block;
+    width: 140px;
+    z-index: 2000;
+    background: #815397;
+}
+
+.nav .submenu li {
+    display: block;
+    width: 100%;
+}
+
+.nav .submenu li a {
+    padding: 0 .5em;
+    width: 100%;
+}
+
+
+/*==================main layout styles=================================*/
+
+body {
+    max-width: 1300px;
+    margin: auto;
+    position: relative;
+    overflow: scroll;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+}
+
+main {
+    margin: auto;
+    padding-top: 145px;
+    display: block;
+    width: 80%;
+}
+
+footer {
+    width: 100%;
+    z-index: 0;
+}
+
+
+/*==============main styles=================*/
+
+body {
+    font-size: 140%;
+    font-family: 'myriad-pro';
+    font-style: normal;
+    font-weight: 300;
+}
+
+article,
+aside {
+    padding: 0.2em 0 1em;
+    margin: 0 auto 2em;
+}
+
+h1 {
+    font-size: 200%;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 1em;
+    color: #0285BF;
+}
+
+h2 {
+    color: rgb(129, 133, 130);
+    font-size: 140%;
+    padding: 1em;
+    text-align: center;
+    margin: 0 1em;
+}
+
+p {
+    padding: 0 .5em;
+    line-height: 1.2;
+    margin: 1em 0;
+    text-align: justify;
+}
+
+em, .white-page a em {
+    font-family: "angelina";
+    color: #E47825;
+    font-weight: bold;
+    font-size: 130%;
+    text-decoration: none;
+}
+
+
+
+.white-page a:hover,
+main a:hover,
+main a:focus,
+main a:hover em,
+main a:focus em,
+main a:hover strong,
+main a:focus strong,
+main a em:hover,
+main a:hover h1,
+main a:hover h2,
+main a:hover h3 {
+    color: #946E4A;
+    text-decoration-color: #946E4A;
+}
+
+strong,
+a strong {
+    font-weight: bold;
+}
+
+a strong {
+    color: black;
+}
+
+.hint {
+    font-size: 80%;
+}
+
+
+/*----------MISC Styles like blockquote, offset ----------------*/
+
+blockquote {
+    width: 80%;
+    margin: 1em auto;
+    font-size: 110%;
+    padding: .5em 1.5em 1em;
+    border-left: 3px solid #E47825;
+    list-style: none;
+    background: #fafafa;
+    -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+}
+
+blockquote p {
+    padding: .5em 0;
+    counter-reset: item;
+    margin: 0;
+}
+
+.offset {
+    display: block;
+    content: "";
+    height: 140px;
+    /* Give height of your fixed element */
+    /* Give negative margin of your fixed element */
+    margin-top: -140px;
+    visibility: hidden;
+}
+
+
+/*============Page Styles=================*/
+
+
+/*----------white-page styles-----------*/
+
+
+/*=========Inspiration Styles===========================*/
+
+.white-page .first-title {
+    background: none;
+    font-size: 150%;
+    margin: auto;
+    padding: 3% 0 .5%;
+}
+
+.white-page h1 {
+    background: rgba(129, 130, 133, .4);
+    /*    position: relative;*/
+    font-size: 150%;
+    padding: 1em .5em;
+    line-height: 1.2em;
+    margin: auto;
+}
+
+.white-page h2 {
+    margin-top: 2em;
+    line-height: 1.5;
+    background: rgba(129, 130, 133, .6);
+    font-size: 100%;
+    color: white;
+    width: 100%;
+    padding: 1% 0;
+    margin: 1% auto;
+    line-height: 1;
+}
+
+.white-page h3 {
+    padding-top: 1em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.white-page img {
+    fill: #E47825;
+}
+
+.white-page main a {
+    color: #0285BF;
+}
+
+
+
+/*-----------blue-page styles---------------*/
+
+.blue-page main, .purple-page main {
+    width: 100%;
+    position: relative;
+    display: block;
+    background: #0285bf;
+    padding-bottom: 3%;
+}
+
+.blue-page .first-title, .purple-page .first-title, {
+    color: white;
+    padding: 3% 0 .5%;
+}
+
+.blue-page h2, .purple-page h2 {
+    color: #0285bf;
+    font-weight: bold;
+    padding: 1em .5em 0;
+}
+
+.blue-page h3, .purple-page h3 {
+    text-align: center;
+    color: #0285bf;
+    font-size: 120%;
+}
+
+
+
+.brown-page main {
+    background: #946E4A;
+}
+
+.purple-page main {
+    background: #815397;
+    padding-bottom: 10%;
+}
+.purple-page .nav, .purple-page #menu  {
+    border-bottom: 1px solid white;
+}
+
+.purple-page .nav:after, .purple-page nav ul:after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    border-bottom:  3px solid #714985;
+}
+
+
+.brown-page h1, .purple-page h1 {
+    color: white;
+    font-family: "angelina";
+    padding: 1em 0 0;
+}
+
+.brown-page main a, .purple-page main address a {
+    color: white;
+    text-decoration: none;
+}
+
+.brown-page a:hover, .purple-page a:hover {
+    color: black;
+}
+
+
+
+
+
+/*================aside styles=====================*/
+
+.aside {
+    background: #E47825;
+    color: white;
+}
+
+.aside h1 {
+    background: #E47825;
+    font-family: "angelina";
+    font-size: 200%;
+    color: white;
+    background: none;
+    padding: .5em;
+}
+
+.aside h2 {
+    background: #CA6B21;
+}
+
+.aside em {
+    font-family: 'myriad-pro';
+    color: white;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.aside a, .aside p a {
+    color: white;
+    text-decoration: underline;
+}
+
+.aside ol {
+    padding-left: 4em;
+}
+
+
+/*==============Article Portal STyles==============================*/
+
+.front-page {
+    padding-top: 0;
+}
+
+#hero {
+    position: relative;
+    width: 100%;
+    display: block;
+    background: url(../images/BMB_WebBanner1300T.png) no-repeat;
+    background-position: top 1em center;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.enter {
+    width: 60%;
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 36%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.enter h2 {
+    font-size: 120%;
+    margin-left: 0;
+    margin-right: 7%;
+    min-width: 213px;
+    flex: 3;
+    padding: 5% 0 0;
+    font-weight: 500;
+}
+
+.enter h2:after {
+    content: "===========>"
+}
+
+.door {
+    background: url(../images/Door_Portal_25p.png) no-repeat;
+    background-position: center top;
+    min-width: 100px;
+    max-width: 150px;
+    height: 150px;
+    flex: 1;
+    margin-right: 4%;
+    margin-top: 5%;
+    transition: box-shadow .15s linear;
+    transition: webkit-box-shadow .15s linear;
+    transition: moz-box-shadow .15s linear;
+}
+
+.door:hover {
+    -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    border-radius: 10%;
+    background-position: center -215px;
+}
+
+
+/*=================footer styles=====================================*/
+
+footer {
+    font-size: 70%;
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-between;
+    bottom: 0;
+    background: #815397;
+    color: white;
+    z-index: 0;
+    align-items: center;
+}
+
+footer div,
+footer p {
+    display: block;
+    text-align: center;
+}
+
+footer div {
+    margin: .5% 1%;
+}
+
+footer a.footer-anchor {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a.footer-anchor:hover {
+    color: black;
+}
+
+a.footer-anchor span {
+    letter-spacing: 5px;
+}
