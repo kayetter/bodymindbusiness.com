@@ -1,12 +1,14 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     coffee = require('gulp-coffee'),
+    browserify = require('gulp-browserify'),
     concat = require('gulp-concat');
 
 var jsSources = [
     'components/scripts/functions.js',
-    'components/scripts/calls.js'
-]
+    'components/scripts/calls.js',
+    'components/scripts/tagline.js'
+];
 
 gulp.task('coffee', function() {
     
@@ -15,10 +17,9 @@ gulp.task('coffee', function() {
              //runs it through the variable, bare = true removes safety wrapper
              .pipe(coffee({bare:true})
     //make sure a coffee script error doesn derail ll of gulp process
-            .on('error', gutil.log('there was a coffee error'))
+            .on('error', gutil.log))
     //pipe results from coffe script and put the file in a new destination
             .pipe(gulp.dest('components/scripts'))
-    )
     
 });
 

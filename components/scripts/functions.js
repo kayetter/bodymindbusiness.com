@@ -98,27 +98,27 @@ function updatePositionSm() {
 
 function calcMainPosition() {
     var header = "";
-    var nav =  "";
-    if( $("#logo").css("display")=='none'){
+    var nav = "";
+    if ($("#logo").css("display") == 'none') {
         header = 0;
     } else {
         header = $("#logo").height();
     };
-    if($(window).width() < 679) {
+    if ($(window).width() < 679) {
         nav = 56;
     } else {
-        var nav =  $(".nav").height();
+        var nav = $(".nav").height();
     };
     height = header + nav;
-    console.log("nav height: "+nav)
-    console.log("Header height: "+ header)
-    console.log("totalheight: "+ height)
-    $("main").css("padding-top", height+"px");
+    console.log("nav height: " + nav)
+    console.log("Header height: " + header)
+    console.log("totalheight: " + height)
+    $("main").css("padding-top", height + "px");
 }
 
 /*---------get JSON testimonials and filter --------------------*/
 function getTestimonials() {
-
+    var Mustache = require('mustache');
 
     $.getJSON("testimonials.json", function (data) {
         var template = $("#testimonialtpl").html();
