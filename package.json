@@ -2,8 +2,14 @@
   "name": "enhance_perf",
   "version": "1.0.0",
   "description": "performance enhancements to bodymindbusiness.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kayetter/bodymindbusiness.com.git"
+  },
   "devDependencies": {
     "grunt-sass": "^2.0.0",
+    "gulp-coffee": "^2.3.3",
+    "gulp-concat": "^2.6.1",
     "gulp-util": "^3.0.8"
   },
   "author": "Kristin Yetter",
