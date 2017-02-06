@@ -1,0 +1,214 @@
+/*======================ABOUT US STYLES================================*/
+
+#about-us {
+    width: 100%;
+    max-width: 1300px;
+    background: white;
+}
+
+.us {
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+}
+
+.us:last-of-type {
+    padding-bottom: 2em;
+}
+
+.header {
+    display: flex;
+    padding-top: 200px;
+}
+
+.titles {
+    display: block;
+    flex: 2;
+    padding-top: 2%;
+    z-index: -2;
+}
+
+.titles h2,
+.titles h3 {
+    display: block;
+    width: 100%;
+    color: white;
+    font-size: 130%;
+    text-align: left;
+    padding: 0;
+    letter-spacing: 5px;
+    margin: 0;
+    padding-left: 80px;
+    margin-left: -80px;
+    background: rgba(0, 0, 0, .3);
+}
+
+.titles h2 {
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.us-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: solid 7px white;
+    margin: 0;
+}
+
+#deb {
+    background: url(../images/dame_ranch_1300.jpg) no-repeat;
+    background-attachment: scroll;
+    background-position: center -80px;
+    background-size: contain;
+    margin: auto;
+}
+
+#deb .us-img {
+    background-attachment: fixed;
+    background: url(../images/deb_spartan_cropped.jpg) no-repeat rgba(231, 231, 231, 1);
+    background-position: center top;
+    margin-right: 2%;
+}
+
+#kristin {
+    background: url(../images/RV-rainbow-1300.jpg) no-repeat;
+    background-attachment: scroll;
+    background-position: center -100px;
+    background-size: contain;
+    margin: auto;
+}
+
+#kristin .us-img {
+    background-attachment: fixed;
+    background: url("../images/KS_headjpg.jpg") no-repeat;
+    background-position: center -20px;
+}
+
+.bio {
+    width: 90%;
+    position: relative;
+    background: $blue;
+    ;
+    border: 2px solid white;
+    padding: 1em 0;
+    margin-top: -100px;
+    margin-left: 5%;
+    z-index: -1;
+    -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+}
+
+.bio p:first-of-type {
+    margin-left: 19%;
+}
+
+.bio p {
+    padding-left: 1em;
+    padding-right: 1em;
+    color: white;
+}
+
+.bio p a {
+    color: white;
+    text-decoration: underline;
+    letter-spacing: 2px;
+}
+
+.bio p em {
+    color: white;
+    line-height: .5;
+}
+
+
+/*----------------TESTIMONIAL STYLES--------------------*/
+
+.t-wrapper {
+    width: 80%;
+    max-width: 960px;
+    margin: auto;
+}
+
+.t-wrapper h2 {
+    font-weight: normal;
+    color: white;
+}
+
+.testimonial p:first-of-type:before {
+    content: '"';
+}
+
+.testimonial p:first-of-type:after {
+    content: '"';
+}
+
+.testimonial.carousel-test p:first-of-type:before {
+    content: '"…';
+}
+
+.testimonial.carousel-test p:first-of-type:after {
+    content: '…"';
+}
+
+.testimonial.carousel-test {
+    /*    min-height: 185px;*/
+    border: 7px solid $orange;
+}
+
+#carousel {
+    position: relative;
+    background: none;
+    min-height: 225px;
+    margin: auto;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.button a {
+    padding: .3em .75em;
+    background: rgb(129, 130, 133);
+    color: white;
+    border-radius: 20%;
+    margin: .3em 2em .3em;
+}
+
+.button a:hover {
+    transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+}
+
+.testimonial {
+    position: relative;
+    background: white;
+    border: 2px solid white;
+    border-radius: 0px 20px 0px 20px;
+    -moz-border-radius: 0px 20px 0px 20px;
+    -webkit-border-radius: 0px 20px 0px 20px;
+    margin: 1em auto;
+    -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1)
+}
+
+.testimonial p {
+    padding-left: 1em;
+    padding-right: 1em;
+    color: black;
+}
+
+.t-carousel {
+    width: 80%;
+    margin: auto;
+}
+
+.t-carousel a {
+    display: block;
+}
+

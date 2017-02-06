@@ -89,7 +89,7 @@
             }
             #menu {
                 display: inline-block;
-                background: #815397;
+                background: $purple;
                 position: fixed;
                 top: 56px;
                 left: 0;
@@ -139,7 +139,7 @@
             }
             .menu-respond > ul > li:hover,
             .menu-respond > ul > li:focus {
-                background: #D8C1E3;
+                background: $ltpurple;
             }
             .nav .smSubmenuLi:after {
                 content: "▶";
@@ -150,7 +150,7 @@
             .nav .submenu-sm {
                 display: block;
                 position: absolute;
-                background: #815397;
+                background: $purple;
                 top: 36px;
                 left: 140px;
                 z-index: 2000;
@@ -188,9 +188,9 @@
                 background: url(../images/OpenDoor_25p.png) no-repeat;
                 background-size: contain;
                 background-position: center center;
-                -webkit-box-shadow: 8px 8px 9px 0px #0285BF;
-                -moz-box-shadow: 8px 8px 9px 0px #0285BF;
-                box-shadow: 8px 8px 9px 0px #0285BF;
+                -webkit-box-shadow: 8px 8px 9px 0px $blue;
+                -moz-box-shadow: 8px 8px 9px 0px $blue;
+                box-shadow: 8px 8px 9px 0px $blue;
             }
             #logo, .logo-pic1 #logo, .logo-pic2 #logo, .logo-pic3 #logo {
                 background: url(../images/BMB_logo_no_tag_25p.png) no-repeat;

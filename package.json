@@ -1,0 +1,10 @@
+{
+  "name": "enhance_perf",
+  "version": "1.0.0",
+  "description": "performance enhancements to bodymindbusiness.com",
+  "devDependencies": {
+    "grunt-sass": "^2.0.0"
+  },
+  "author": "Kristin Yetter",
+  "license": "MIT"
+}

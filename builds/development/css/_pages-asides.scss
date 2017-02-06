@@ -1,0 +1,219 @@
+/*============Page Styles=================*/
+
+
+/*----------white-page styles-----------*/
+
+
+
+.white-page .first-title {
+    background: none;
+    font-size: 150%;
+    margin: auto;
+    padding: 3% 0 .5%;
+}
+
+.white-page h1 {
+    background: rgba(129, 130, 133, .4);
+    /*    position: relative;*/
+    font-size: 150%;
+    padding: 1em .5em;
+    line-height: 1.2em;
+    margin: auto;
+}
+
+.white-page h2 {
+    margin-top: 2em;
+    line-height: 1.5;
+    background: rgba(129, 130, 133, .6);
+    font-size: 100%;
+    color: white;
+    width: 100%;
+    padding: 1% 0;
+    margin: 1% auto;
+    line-height: 1;
+}
+
+.white-page h3 {
+    padding-top: 1em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.white-page img {
+    fill: $orange;
+}
+
+.white-page main a {
+    color: $blue;
+}
+
+
+
+/*-----------blue-page styles---------------*/
+
+.blue-page main, .purple-page main {
+    width: 100%;
+    position: relative;
+    display: block;
+    background: #0285bf;
+    padding-bottom: 3%;
+}
+
+.blue-page .first-title, .purple-page .first-title, {
+    color: white;
+    padding: 3% 0 .5%;
+}
+
+.blue-page h2, .purple-page h2 {
+    color: #0285bf;
+    font-weight: bold;
+    padding: 1em .5em 0;
+}
+
+.blue-page h3, .purple-page h3 {
+    text-align: center;
+    color: #0285bf;
+    font-size: 120%;
+}
+
+
+
+.brown-page main {
+    background: $brown;
+}
+
+.purple-page main {
+    background: $purple;
+    padding-bottom: 10%;
+}
+.purple-page .nav, .purple-page #menu  {
+    border-bottom: 1px solid white;
+}
+
+.purple-page .nav:after, .purple-page nav ul:after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    border-bottom:  3px solid #714985;
+}
+
+
+.brown-page h1, .purple-page h1 {
+    color: white;
+    font-family: "angelina";
+    padding: 1em 0 0;
+}
+
+.brown-page main a, .purple-page main address a {
+    color: white;
+    text-decoration: none;
+}
+
+.brown-page a:hover, .purple-page a:hover {
+    color: black;
+}
+
+
+
+
+
+/*================aside styles=====================*/
+
+.aside {
+    background: $orange;
+    color: white;
+}
+
+.aside h1 {
+    background: $orange;
+    font-family: "angelina";
+    font-size: 200%;
+    color: white;
+    background: none;
+    padding: .5em;
+}
+
+.aside h2 {
+    background: #CA6B21;
+}
+
+.aside em {
+    font-family: 'myriad-pro';
+    color: white;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.aside a, .aside p a {
+    color: white;
+    text-decoration: underline;
+}
+
+.aside ol {
+    padding-left: 4em;
+}
+
+
+/*==============Article Portal STyles==============================*/
+
+.front-page {
+    padding-top: 0;
+}
+
+#hero {
+    position: relative;
+    width: 100%;
+    display: block;
+    background: url(../images/BMB_WebBanner1300T.png) no-repeat;
+    background-position: top 1em center;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.enter {
+    width: 60%;
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 36%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.enter h2 {
+    font-size: 120%;
+    margin-left: 0;
+    margin-right: 7%;
+    min-width: 213px;
+    flex: 3;
+    padding: 5% 0 0;
+    font-weight: 500;
+}
+
+.enter h2:after {
+    content: "===========>"
+}
+
+.door {
+    background: url(../images/Door_Portal_25p.png) no-repeat;
+    background-position: center top;
+    min-width: 100px;
+    max-width: 150px;
+    height: 150px;
+    flex: 1;
+    margin-right: 4%;
+    margin-top: 5%;
+    transition: box-shadow .15s linear;
+    transition: webkit-box-shadow .15s linear;
+    transition: moz-box-shadow .15s linear;
+}
+
+.door:hover {
+    -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
+    border-radius: 10%;
+    background-position: center -215px;
+}
