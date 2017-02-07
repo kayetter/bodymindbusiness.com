@@ -1,3 +1,5 @@
+
+$ = require('jquery');
 /*----------add submenu class to lis with submenu depending on screen width and updates position of submenu---*/
 
 function addSubmenuLi() {

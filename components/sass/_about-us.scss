@@ -212,3 +212,54 @@
     display: block;
 }
 
+/*===============address styles====================*/
+
+address{
+    width: 30%;
+    position: relative;
+    min-width: 250px;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    display: block;
+    padding: 2% 0;
+    font-size: 80%;
+    border-bottom: 1px solid white;
+    margin: 0 auto;
+}
+
+address:after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    border-bottom:  3px solid #714985;
+}
+
+address p {
+    text-align: center;
+}
+
+#twitter img{
+    border-radius: 50%;
+    width: 100%;
+}
+
+#twitter {
+    width: 25px;
+}
+
+
+
+.social-media div {
+    padding: 1em .5em;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
