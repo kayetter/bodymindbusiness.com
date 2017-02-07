@@ -63,16 +63,10 @@
         <meta name="theme-color" content="#ffffff">
 
         <!-------------Stylesheet Links---------------->
-        <link rel="stylesheet" href="css/style2.css">
-        <link rel="stylesheet" href="css/portal.css">
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-------------Link to scripts------------------>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <!-------------JQuery Library for Carousels-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.0.3/jquery.cycle.all.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
         <script src="js/scripts.js"></script>
 </head>

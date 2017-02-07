@@ -95,7 +95,7 @@ function updatePositionSm() {
         "top": top + "px",
         "left": left + "px"
     });
-    console.log("update the submenu position");
+    console.log("YOU ARE FREE YOU ARE FREE YOU ARE FREE update the submenu position");
 }
 
 function calcMainPosition() {
@@ -122,7 +122,7 @@ function calcMainPosition() {
 function getTestimonials() {
     var Mustache = require('mustache');
 
-    $.getJSON("testimonials.json", function (data) {
+    $.getJSON("js/testimonials.json", function (data) {
         var template = $("#testimonialtpl").html();
         var carouseltpl = $("#carouseltpl").html();
 

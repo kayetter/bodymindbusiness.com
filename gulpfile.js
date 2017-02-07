@@ -3,7 +3,11 @@ var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     compass = require('gulp-compass'),
     browserify = require('gulp-browserify'),
+    browsersync = require('browser-sync').create(),
     concat = require('gulp-concat');
+
+
+
 
 var jsSources = [
     'components/scripts/functions.js',
@@ -43,15 +47,29 @@ gulp.task('compass', function() {
     })
               .on('error', gutil.log))
         .pipe(gulp.dest('builds/development/css'))
+        .pipe(browsersync.stream())
+});
+
+gulp.task('browsersync', function(){
+    browsersync.init({
+        open: 'external',
+        host: 'bmb.dev',
+        proxy: 'bmb.dev',
+        port: 80
+    });
+    
+});
+
+gulp.task('reload', function() {
+    browsersync.reload('builds/development/*.php')
+    
 });
 
 gulp.task('watch', function(){
     gulp.watch('components/coffee/tagline.coffee', ['coffee']);  
-    gulp.watch(jsSources, ['jsConcat']);  
-    gulp.watch('components/sass/*.scss', ['compass']);  
-    
-    
-})
+    gulp.watch('components/sass/*.scss', ['compass']);
+    gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
+});
 
-gulp.task('default', ['coffee', 'jsConcat', 'compass']);
+gulp.task('default', ['coffee', 'browsersync', 'jsConcat', 'compass', 'watch']);
           

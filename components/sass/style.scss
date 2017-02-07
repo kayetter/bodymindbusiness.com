@@ -5,10 +5,10 @@
 
 @import "compass";
 @import "compass/css3/box-shadow";
+@import "compass/reset";
 
 //core partials
 @import "variables";
-@import "reset";
 @import "main";
 @import "nav";
 @import "pages-asides";
