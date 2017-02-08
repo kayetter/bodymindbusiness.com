@@ -4,6 +4,8 @@ var gulp = require('gulp'),
     compass = require('gulp-compass'),
     browserify = require('gulp-browserify'),
     browsersync = require('browser-sync').create(),
+    uglify = require('gulp-uglify'),
+    gulpif = require('gulp-if'),
     concat = require('gulp-concat');
 
 var env,
@@ -11,9 +13,14 @@ var env,
     jsSources,
     sassSources,
     phpSources,
+    fontSources,
+    favSources,
+    docSources,
+    assets,
     outputDir,
     //add sassStyle to compass style to toggle between environments
-    sassStyle;
+    sassStyle,
+    proxy;
 
 //sets a variable that if set = production environment otherwise it defaults to development, at cmd prompt use $ NODE_ENV=production gulp
  env = process.env.NODE_ENV || 'development';
@@ -21,9 +28,11 @@ var env,
 if(env === 'development'){
     outputDir = 'builds/development/';
     sassStyle = 'expanded';
+    proxy = 'bmb.dev';
 } else {
     outputDir = 'builds/production/';
     sassStyle = 'compressed';
+    proxy = 'bmb.prod';
 }
 
 jsSources = [
@@ -31,8 +40,13 @@ jsSources = [
     'components/scripts/calls.js',
     'components/scripts/tagline.js'
 ];
+
 sassSources = ['components/sass/style.scss'];
 phpSources = [outputDir + '*.php'];
+favSources = [outputDir + 'favicon/*.*'];
+docSources = [outputDir + 'docs/*.*'];
+fontSources = [outputDir + 'web_fonts/*.*'];
+assets = [favSources, docSources, fontSources];
 
 
 
@@ -53,10 +67,11 @@ gulp.task('jsConcat', function(){
     gulp.src(jsSources)
     .pipe(concat('scripts.js'))
     .pipe(browserify())
-        .pipe(gulp.dest(outputDir +'js'))
+    .pipe(gulpif(env==='production',
+          uglify()
+          ))
+    .pipe(gulp.dest(outputDir +'js'))
 });
-
-
 
 gulp.task('compass', function() {
     gulp.src(sassSources)
@@ -72,16 +87,38 @@ gulp.task('compass', function() {
 gulp.task('browsersync', function(){
     browsersync.init({
         open: 'external',
-        host: 'bmb.dev',
-        proxy: 'bmb.dev',
+        host: proxy,
+        proxy: proxy,
         port: 80
-    });
-    
+        });
+});
+
+gulp.task('movePHP', function(){
+    gulp.src('builds/development/*.php')
+    .pipe(gulpif(env==='production',
+           gulp.dest(outputDir)))
+});
+
+gulp.task('moveDocs', function(){
+    gulp.src('builds/development/docs/*.*')
+    .pipe(gulpif(env==='production',
+            gulp.dest(outputDir + '/docs')))
+});
+
+gulp.task('moveFavicon', function(){
+    gulp.src('builds/development/favicon/*.*')
+    .pipe(gulpif(env==='production',
+            gulp.dest(outputDir + '/favicon')))
+});
+
+gulp.task('moveWebFonts', function(){
+    gulp.src('builds/development/web_fonts/*.*')
+    .pipe(gulpif(env==='production',
+            gulp.dest(outputDir + '/web_fonts')))
 });
 
 gulp.task('reload', function() {
     browsersync.reload(outputDir + '*.php')
-    
 });
 
 
@@ -89,9 +126,12 @@ gulp.task('watch', function(){
     gulp.watch('components/coffee/tagline.coffee', ['coffee']);  
     gulp.watch('components/sass/*.scss', ['compass']);
     gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
-    gulp.watch(phpSources, ['reload']);
-    gulp.watch(outputDir +'js/*.json', ['reload'])
+    gulp.watch('builds/development/*.php', ['phpMove']);
+    gulp.watch('builds/development/favicon/*.*', ['moveFavicon']);
+    gulp.watch('builds/development/docs/*.*', ['moveDocs']);
+    gulp.watch('builds/development/web_fonts/*.*', ['moveWebFonts']);
+    gulp.watch(assets,  ['reload']);
 });
 
-gulp.task('default', ['coffee', 'browsersync', 'jsConcat', 'compass', 'watch']);
+gulp.task('default', ['coffee', 'jsConcat', 'compass','movePHP', 'moveDocs', 'moveFavicon', 'moveWebFonts', 'browsersync', 'watch']);
           
