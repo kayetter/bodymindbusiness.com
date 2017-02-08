@@ -121,6 +121,7 @@ function calcMainPosition() {
 /*---------get JSON testimonials and filter --------------------*/
 function getTestimonials() {
     var Mustache = require('mustache');
+    var jqueryCycle = require('jquery-cycle')
 
     $.getJSON("js/testimonials.json", function (data) {
         var template = $("#testimonialtpl").html();
@@ -162,7 +163,8 @@ function getTestimonials() {
             speed: 1000,
             timeout: 5000,
             random: 1,
-            fit: 1
+            fit: 0
         });
+        console.log("is cycle working");
     }); //get JSON
 } //fxn

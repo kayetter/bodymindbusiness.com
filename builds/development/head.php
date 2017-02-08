@@ -12,7 +12,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="BodyMindBusiness" />
     <meta property="og:description" content="At BodyMindBusiness, we help you reclaim the way you work, think and live. We seek to transform lives, companies and communities with an intuitive and holistic approach to creating sustainable, integrated and sexy systems that elevate wellness, productivity and profits." />
-    <meta property="og:image" content="https://bodymindbusiness.com/images/BMB_Square1.png" />
+    <meta property="og:image"  content="https://bodymindbusiness.com/images/BMB_Square1.png" />
 
     <!-------twitter OG content------------->
     <meta name="twitter:site" content="@bodymindbusines" />
@@ -64,8 +64,7 @@
 
         <!-------------Stylesheet Links---------------->
         <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+ 
         <!-------------Link to scripts------------------>
 
         <script src="js/scripts.js"></script>

@@ -1,19 +1,23 @@
 //Styles.scss
 //===================
-
 //Compass imports
 
 @import "compass";
 @import "compass/css3/box-shadow";
 @import "compass/reset";
 
+//fonts
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 //core partials
 @import "variables";
+@import "reset";
 @import "main";
 @import "nav";
 @import "pages-asides";
 @import "footer";
 @import "welcome";
-@import "diy";
+@import "diy"; 
 @import "about-us";
 @import "responsive";
+
+@CHARSET 'UTF-8'

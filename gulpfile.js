@@ -17,6 +17,8 @@ var jsSources = [
 
 var sassSources = ['components/sass/style.scss'];
 
+var phpSources = ['builds/development/*.php'];
+
 gulp.task('coffee', function() {
     
     //grabs information in source file
@@ -65,10 +67,12 @@ gulp.task('reload', function() {
     
 });
 
+
 gulp.task('watch', function(){
     gulp.watch('components/coffee/tagline.coffee', ['coffee']);  
     gulp.watch('components/sass/*.scss', ['compass']);
     gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
+    gulp.watch(phpSources, ['reload']);
 });
 
 gulp.task('default', ['coffee', 'browsersync', 'jsConcat', 'compass', 'watch']);
