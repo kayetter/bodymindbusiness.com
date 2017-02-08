@@ -136,19 +136,19 @@
 }
 
 .testimonial p:first-of-type:before {
-    content: '"';
+    content: '\201C';
 }
 
 .testimonial p:first-of-type:after {
-    content: '"';
+    content: '\201D';
 }
 
 .testimonial.carousel-test p:first-of-type:before {
-    content: '"…';
+    content: '\201C\2026';
 }
 
 .testimonial.carousel-test p:first-of-type:after {
-    content: '…"';
+    content: '\2026\201D';
 }
 
 .testimonial.carousel-test {

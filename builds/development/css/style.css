@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import "https://fonts.googleapis.com/css?family=PT+Sans";
 html, body, div, span, applet, object, iframe,
@@ -1028,19 +1027,19 @@ a:hover i, a:visited i {
 }
 
 .testimonial p:first-of-type:before {
-  content: '"';
+  content: '\201C';
 }
 
 .testimonial p:first-of-type:after {
-  content: '"';
+  content: '\201D';
 }
 
 .testimonial.carousel-test p:first-of-type:before {
-  content: '"ΓÇª';
+  content: '\201C\2026';
 }
 
 .testimonial.carousel-test p:first-of-type:after {
-  content: 'ΓÇª"';
+  content: '\2026\201D';
 }
 
 .testimonial.carousel-test {
