@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     browsersync = require('browser-sync').create(),
     uglify = require('gulp-uglify'),
     gulpif = require('gulp-if'),
+    imagemin = require('gulp-imagemin'),
+    pngcrush = require('imagemin-pngcrush'),
     jsonminify = require('gulp-jsonminify'),
     concat = require('gulp-concat');
 
@@ -17,6 +19,7 @@ var env,
     fontSources,
     favSources,
     docSources,
+    imgSources,
     assets,
     outputDir,
     jsonSources,
@@ -49,7 +52,8 @@ phpSources = [outputDir + '*.php'];
 favSources = [outputDir + 'favicon/*.*'];
 docSources = [outputDir + 'docs/*.*'];
 fontSources = [outputDir + 'web_fonts/*.*'];
-assets = [favSources, docSources, fontSources];
+imgSources = [outputDir + 'images/**/*.*']
+assets = [favSources, docSources, fontSources, imgSources];
 
 
 
@@ -93,6 +97,16 @@ gulp.task('jsonminify', function () {
             gulp.src('builds/development/js/*.json')
                 .pipe(gulpif(env === 'production', jsonminify()))
                 .pipe(gulpif(env === 'production', gulp.dest('builds/production/js')))
+                });
+
+gulp.task('images', function () {
+            gulp.src('builds/development/images/**/*.*')
+                .pipe(gulpif(env === 'production', imagemin({
+                progressive: true,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [pngcrush()]
+            })))
+                .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'images')))
                 });
 
         gulp.task('browsersync', function () {
@@ -139,10 +153,11 @@ gulp.task('jsonminify', function () {
             gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
             gulp.watch('builds/development/js/*.json', ['jsonminify', 'reload']);
             gulp.watch('builds/development/*.php', ['phpMove']);
+            gulp.watch('builds/development/images/**/*.*', ['images']);
             gulp.watch('builds/development/favicon/*.*', ['moveFavicon']);
             gulp.watch('builds/development/docs/*.*', ['moveDocs']);
             gulp.watch('builds/development/web_fonts/*.*', ['moveWebFonts']);
             gulp.watch(assets, ['reload']);
         });
 
-        gulp.task('default', ['coffee', 'jsConcat', 'compass', 'jsonminify', 'movePHP', 'moveDocs', 'moveFavicon', 'moveWebFonts', 'browsersync', 'watch']);
+        gulp.task('default', ['coffee', 'jsConcat', 'compass', 'jsonminify', 'images', 'movePHP', 'moveDocs', 'moveFavicon', 'moveWebFonts', 'browsersync', 'watch']);
