@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngcrush = require('imagemin-pngcrush'),
     jsonminify = require('gulp-jsonminify'),
+    clean = require('gulp-clean'),
     concat = require('gulp-concat');
 
 var env,
@@ -72,6 +73,12 @@ gulp.task('coffee', function () {
 
 });
 
+gulp.task('cleanProd', function(){
+    gulpif(env==='production',
+          gulp.src('builds/production/', {read: false})
+          .pipe(clean()))
+});
+
 gulp.task('jsConcat', function () {
     gulp.src(jsSources)
         .pipe(concat('scripts.js'))
@@ -94,70 +101,72 @@ gulp.task('compass', function () {
 });
 
 gulp.task('jsonminify', function () {
-            gulp.src('builds/development/js/*.json')
-                .pipe(gulpif(env === 'production', jsonminify()))
-                .pipe(gulpif(env === 'production', gulp.dest('builds/production/js')))
-                });
+    gulp.src('builds/development/js/*.json')
+        .pipe(gulpif(env === 'production', jsonminify()))
+        .pipe(gulpif(env === 'production', gulp.dest('builds/production/js')))
+});
 
 gulp.task('images', function () {
-            gulp.src('builds/development/images/**/*.*')
-                .pipe(gulpif(env === 'production', imagemin({
-                progressive: true,
-                svgoPlugins: [{removeViewBox: false}],
-                use: [pngcrush()]
-            })))
-                .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'images')))
-                });
+    gulp.src('builds/development/images/**/*.*')
+        .pipe(gulpif(env === 'production', imagemin({
+            progressive: true,
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
+            use: [pngcrush()]
+        })))
+        .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'images')))
+});
 
-        gulp.task('browsersync', function () {
-            browsersync.init({
-                open: 'external',
-                host: proxy,
-                proxy: proxy,
-                port: 80
-            });
-        });
+gulp.task('browsersync', function () {
+    browsersync.init({
+        open: 'external',
+        host: proxy,
+        proxy: proxy,
+        port: 80
+    });
+});
 
-        gulp.task('movePHP', function () {
-            gulp.src('builds/development/*.php')
-                .pipe(gulpif(env === 'production',
-                    gulp.dest(outputDir)))
-        });
+gulp.task('movePHP', function () {
+    gulp.src('builds/development/*.php')
+        .pipe(gulpif(env === 'production',
+            gulp.dest(outputDir)))
+});
 
-        gulp.task('moveDocs', function () {
-            gulp.src('builds/development/docs/*.*')
-                .pipe(gulpif(env === 'production',
-                    gulp.dest(outputDir + '/docs')))
-        });
+gulp.task('moveDocs', function () {
+    gulp.src('builds/development/docs/*.*')
+        .pipe(gulpif(env === 'production',
+            gulp.dest(outputDir + '/docs')))
+});
 
-        gulp.task('moveFavicon', function () {
-            gulp.src('builds/development/favicon/*.*')
-                .pipe(gulpif(env === 'production',
-                    gulp.dest(outputDir + '/favicon')))
-        });
+gulp.task('moveFavicon', function () {
+    gulp.src('builds/development/favicon/*.*')
+        .pipe(gulpif(env === 'production',
+            gulp.dest(outputDir + '/favicon')))
+});
 
-        gulp.task('moveWebFonts', function () {
-            gulp.src('builds/development/web_fonts/*.*')
-                .pipe(gulpif(env === 'production',
-                    gulp.dest(outputDir + '/web_fonts')))
-        });
+gulp.task('moveWebFonts', function () {
+    gulp.src('builds/development/web_fonts/*.*')
+        .pipe(gulpif(env === 'production',
+            gulp.dest(outputDir + '/web_fonts')))
+});
 
-        gulp.task('reload', function () {
-            browsersync.reload(outputDir + '*.php')
-        });
+gulp.task('reload', function () {
+    browsersync.reload(outputDir + '*.php')
+});
 
 
-        gulp.task('watch', function () {
-            gulp.watch('components/coffee/tagline.coffee', ['coffee']);
-            gulp.watch('components/sass/*.scss', ['compass']);
-            gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
-            gulp.watch('builds/development/js/*.json', ['jsonminify', 'reload']);
-            gulp.watch('builds/development/*.php', ['phpMove']);
-            gulp.watch('builds/development/images/**/*.*', ['images']);
-            gulp.watch('builds/development/favicon/*.*', ['moveFavicon']);
-            gulp.watch('builds/development/docs/*.*', ['moveDocs']);
-            gulp.watch('builds/development/web_fonts/*.*', ['moveWebFonts']);
-            gulp.watch(assets, ['reload']);
-        });
+gulp.task('watch', function () {
+    gulp.watch('components/coffee/tagline.coffee', ['coffee']);
+    gulp.watch('components/sass/*.scss', ['compass']);
+    gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
+    gulp.watch('builds/development/js/*.json', ['jsonminify', 'reload']);
+    gulp.watch('builds/development/*.php', ['phpMove']);
+    gulp.watch('builds/development/images/**/*.*', ['images']);
+    gulp.watch('builds/development/favicon/*.*', ['moveFavicon']);
+    gulp.watch('builds/development/docs/*.*', ['moveDocs']);
+    gulp.watch('builds/development/web_fonts/*.*', ['moveWebFonts']);
+    gulp.watch(assets, ['reload']);
+});
 
-        gulp.task('default', ['coffee', 'jsConcat', 'compass', 'jsonminify', 'images', 'movePHP', 'moveDocs', 'moveFavicon', 'moveWebFonts', 'browsersync', 'watch']);
+gulp.task('default', ['coffee', 'jsConcat', 'compass', 'jsonminify', 'images', 'movePHP', 'moveDocs', 'moveFavicon', 'moveWebFonts', 'browsersync', 'watch']);

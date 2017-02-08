@@ -56,6 +56,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+@CHARSET 'UTF-8'
 @font-face {
   font-family: 'angelina';
   src: url("../web_fonts/angelina.eot");
@@ -1485,4 +1486,3 @@ address p {
   }
 }
 /*end of max-width: 678px media query*/
-@CHARSET 'UTF-8';
