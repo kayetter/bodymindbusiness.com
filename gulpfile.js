@@ -158,10 +158,10 @@ gulp.task('reload', function () {
 
 gulp.task('watch', function () {
     gulp.watch('components/coffee/tagline.coffee', ['coffee']);
-    gulp.watch('components/sass/*.scss', ['compass']);
+    gulp.watch('components/sass/*.scss', ['compass', 'reload']);
     gulp.watch('components/scripts/*.js', ['jsConcat', 'reload']);
     gulp.watch('builds/development/js/*.json', ['jsonminify', 'reload']);
-    gulp.watch('builds/development/*.php', ['phpMove']);
+    gulp.watch('builds/development/*.php', ['movePHP']);
     gulp.watch('builds/development/images/**/*.*', ['images']);
     gulp.watch('builds/development/favicon/*.*', ['moveFavicon']);
     gulp.watch('builds/development/docs/*.*', ['moveDocs']);
