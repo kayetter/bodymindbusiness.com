@@ -65,7 +65,4 @@
         <!-------------Stylesheet Links---------------->
         <link rel="stylesheet" href="css/style.css">
  
-        <!-------------Link to scripts------------------>
-
-        <script src="js/scripts.js"></script>
 </head>

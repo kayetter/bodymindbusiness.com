@@ -12,3 +12,8 @@
     </div>
 
 </footer>
+
+
+<!-------------Link to scripts------------------>
+
+<script src="js/scripts.js"></script>  
