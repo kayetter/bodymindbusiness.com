@@ -10,11 +10,12 @@ var gulp = require('gulp'),
     pngcrush = require('imagemin-pngcrush'),
     jsonminify = require('gulp-jsonminify'),
     clean = require('gulp-clean'),
-    concat = require('gulp-concat'),
+    concat = require('gulp-concat');
 //for chacebusting and file hasing
 
-    rev = require('gulp-rev').
+var rev = require('gulp-rev'),
     revDel = require('rev-del'),
+    cachebust = require('gulp-cachebust'),
     revReplace = require('gulp-rev-replace');
 
 var env,
@@ -32,7 +33,9 @@ var env,
     //add sassStyle to compass style to toggle between environments
     sassStyle,
     proxy,
+    prod,
     limbo;
+
 
 //sets a variable that if set = production environment otherwise it defaults to development, at cmd prompt use $ NODE_ENV=production gulp
 env = process.env.NODE_ENV || 'development';
@@ -62,6 +65,7 @@ fontSources = [outputDir + 'web_fonts/*.*'];
 imgSources = [outputDir + 'images/**/*.*'];
 assets = [favSources, docSources, fontSources, imgSources];
 limbo = "limbo/";
+prod = 'builds/production/';
 
 
 gulp.task('coffee', function () {
@@ -83,6 +87,8 @@ gulp.task('cleanProd', function(){
     gulpif(env==='production',
           gulp.src('builds/production/', {read: false})
           .pipe(clean()))
+        gulp.src(limbo, {read:false})
+        .pipe(clean());
 });
 
 gulp.task('jsConcat', function () {
@@ -92,8 +98,8 @@ gulp.task('jsConcat', function () {
         .pipe(gulpif(env === 'production',
             uglify()
         ))
-        .pipe(gulpif(env==='production', gulp.dest(limbo))
-        .pipe(gulp.dest('builds/development/js')
+        .pipe(gulpif(env==='production', gulp.dest(limbo + 'js')))
+        .pipe(gulp.dest('builds/development/js'));
 });
 
 gulp.task('compass', function () {
@@ -103,17 +109,15 @@ gulp.task('compass', function () {
                 style: sassStyle
             })
             .on('error', gutil.log))
-        .pipe(gulpif(env==='production', gulp.dest(limbo))
-        .pipe(gulp.dest('builds/development/css')
-
-        .pipe(browsersync.stream())
+        .pipe(gulpif(env==='production', gulp.dest(limbo + 'css')))
+        .pipe(gulp.dest('builds/development/css'))
+        .pipe(browsersync.stream());
 });
 
 gulp.task('jsonminify', function () {
     gulp.src('builds/development/js/*.json')
         .pipe(gulpif(env === 'production', jsonminify()))
-        .pipe(gulpif(env === 'production', gulp.dest(limbo)))
-        .pipe(gulp.dest('builds/development/js')
+        .pipe(gulpif(env === 'production', gulp.dest(limbo + 'js')));
 });
 
 gulp.task('images', function () {
@@ -125,7 +129,7 @@ gulp.task('images', function () {
             }],
             use: [pngcrush()]
         })))
-        .pipe(gulpif(env === 'production', gulp.dest(limbo)))
+        .pipe(gulpif(env === 'production', gulp.dest(limbo + 'images')));
 });
 
 gulp.task('browsersync', function () {
@@ -146,19 +150,43 @@ gulp.task('movePHP', function () {
 gulp.task('moveDocs', function () {
     gulp.src('builds/development/docs/*.*')
         .pipe(gulpif(env === 'production',
-            gulp.dest(limbo)))
+            gulp.dest(limbo + 'docs')))
 });
 
 gulp.task('moveFavicon', function () {
     gulp.src('builds/development/favicon/*.*')
         .pipe(gulpif(env === 'production',
-            gulp.dest(limbo)))
+            gulp.dest(limbo + 'favicon')))
 });
 
 gulp.task('moveWebFonts', function () {
     gulp.src('builds/development/web_fonts/*.*')
         .pipe(gulpif(env === 'production',
-            gulp.dest(limbo)))
+            gulp.dest(outputDir + 'web_fonts')));
+});
+        
+//rename assets based on content cache
+
+
+
+gulp.task('rev', function () {
+    return gulp.src(limbo + '**/*.{js,css,jpeg,png,jpg,svg,ico}')
+        .pipe(rev())
+        .pipe(gulp.dest('builds/production/'))
+        .pipe(rev.manifest())
+        .pipe(revDel({dest: 'builds/production/'}))
+        .pipe(gulp.dest('builds/production/'));
+});
+
+gulp.task('revreplace', function () {
+    var manifest = gulp.src('builds/production/rev-manifest.json');
+    
+    return gulp.src(limbo + '*.php')
+    // Awesome html stuff 
+        .pipe(revReplace({manifest: manifest,
+                          replaceInExtensions: ['.js', '.css', '.php']
+                         }))
+        .pipe(gulp.dest('builds/production'));
 });
 
 gulp.task('reload', function () {
