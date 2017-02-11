@@ -10,7 +10,12 @@ var gulp = require('gulp'),
     pngcrush = require('imagemin-pngcrush'),
     jsonminify = require('gulp-jsonminify'),
     clean = require('gulp-clean'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+//for chacebusting and file hasing
+
+    rev = require('gulp-rev').
+    revDel = require('rev-del'),
+    revReplace = require('gulp-rev-replace');
 
 var env,
     coffeeSoures,
@@ -26,7 +31,8 @@ var env,
     jsonSources,
     //add sassStyle to compass style to toggle between environments
     sassStyle,
-    proxy;
+    proxy,
+    limbo;
 
 //sets a variable that if set = production environment otherwise it defaults to development, at cmd prompt use $ NODE_ENV=production gulp
 env = process.env.NODE_ENV || 'development';
@@ -48,14 +54,14 @@ jsSources = [
 ];
 
 sassSources = ['components/sass/style.scss'];
-jsonSources = [outputDir + '/js/*.json']
+jsonSources = [outputDir + '/js/*.json'];
 phpSources = [outputDir + '*.php'];
 favSources = [outputDir + 'favicon/*.*'];
 docSources = [outputDir + 'docs/*.*'];
 fontSources = [outputDir + 'web_fonts/*.*'];
-imgSources = [outputDir + 'images/**/*.*']
+imgSources = [outputDir + 'images/**/*.*'];
 assets = [favSources, docSources, fontSources, imgSources];
-
+limbo = "limbo/";
 
 
 gulp.task('coffee', function () {
@@ -86,7 +92,8 @@ gulp.task('jsConcat', function () {
         .pipe(gulpif(env === 'production',
             uglify()
         ))
-        .pipe(gulp.dest(outputDir + 'js'))
+        .pipe(gulpif(env==='production', gulp.dest(limbo))
+        .pipe(gulp.dest('builds/development/js')
 });
 
 gulp.task('compass', function () {
@@ -96,14 +103,17 @@ gulp.task('compass', function () {
                 style: sassStyle
             })
             .on('error', gutil.log))
-        .pipe(gulp.dest(outputDir + 'css'))
+        .pipe(gulpif(env==='production', gulp.dest(limbo))
+        .pipe(gulp.dest('builds/development/css')
+
         .pipe(browsersync.stream())
 });
 
 gulp.task('jsonminify', function () {
     gulp.src('builds/development/js/*.json')
         .pipe(gulpif(env === 'production', jsonminify()))
-        .pipe(gulpif(env === 'production', gulp.dest('builds/production/js')))
+        .pipe(gulpif(env === 'production', gulp.dest(limbo)))
+        .pipe(gulp.dest('builds/development/js')
 });
 
 gulp.task('images', function () {
@@ -115,7 +125,7 @@ gulp.task('images', function () {
             }],
             use: [pngcrush()]
         })))
-        .pipe(gulpif(env === 'production', gulp.dest(outputDir + 'images')))
+        .pipe(gulpif(env === 'production', gulp.dest(limbo)))
 });
 
 gulp.task('browsersync', function () {
@@ -130,25 +140,25 @@ gulp.task('browsersync', function () {
 gulp.task('movePHP', function () {
     gulp.src('builds/development/*.php')
         .pipe(gulpif(env === 'production',
-            gulp.dest(outputDir)))
+            gulp.dest(limbo)))
 });
 
 gulp.task('moveDocs', function () {
     gulp.src('builds/development/docs/*.*')
         .pipe(gulpif(env === 'production',
-            gulp.dest(outputDir + '/docs')))
+            gulp.dest(limbo)))
 });
 
 gulp.task('moveFavicon', function () {
     gulp.src('builds/development/favicon/*.*')
         .pipe(gulpif(env === 'production',
-            gulp.dest(outputDir + '/favicon')))
+            gulp.dest(limbo)))
 });
 
 gulp.task('moveWebFonts', function () {
     gulp.src('builds/development/web_fonts/*.*')
         .pipe(gulpif(env === 'production',
-            gulp.dest(outputDir + '/web_fonts')))
+            gulp.dest(limbo)))
 });
 
 gulp.task('reload', function () {
