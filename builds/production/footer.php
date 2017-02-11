@@ -16,4 +16,4 @@
 
 <!-------------Link to scripts------------------>
 
-<script src="js/scripts-742d415569.js" async></script>  
+<script src="js/scripts.js" async></script>  

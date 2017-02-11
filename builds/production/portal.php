@@ -159,7 +159,7 @@
             <p>We are very curious to meet you and to hear your story! Please <a href="form.php">Contact us today</a>
             </p>
             <div class="signature">
-                <img src="images/favicon-15f29bdd64.svg" alt="">
+                <img src="images/favicon.svg" alt="">
                 <p>Deb</p>
             </div>
         </aside>
