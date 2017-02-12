@@ -1,17 +1,25 @@
 
-@font-face {
-    font-family: 'angelina';
-    src: url('../web_fonts/angelina.eot');
-    src: local('angelina'), url('../web_fonts/angelina.woff') format('woff'), url('../web_fonts/angelina.ttf') format('truetype');
-}
 
-@import "https://fonts.googleapis.com/css?family=PT+Sans";
 $orange    :#E47825;
 $blue        :#0285BF;    
 $brown    :#946E4A;
 $purple    : #815397;
 $gray    :rgb(129,130,133);
 $ltpurple    :#D8C1E3;
+
+
+
+
+/*==============web fonts===================*/
+@import "https://fonts.googleapis.com/css?family=PT+Sans";
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+@font-face {
+    font-family: 'angelina';
+    src: url('../web_fonts/angelina.eot');
+    src: local('angelina'), url('../web_fonts/angelina.woff') format('woff'), url('../web_fonts/angelina.ttf') format('truetype');
+}
 
 $accentFont: "angelina";
 $bodyFont: "PTSans", sans-serif;

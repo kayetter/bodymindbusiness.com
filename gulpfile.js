@@ -1,21 +1,29 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    //coffee not used
     coffee = require('gulp-coffee'),
+    //compass concatenates scss files into css 
     compass = require('gulp-compass'),
+    //includes libraries in js scripts where called
     browserify = require('gulp-browserify'),
+    //opens browser and syncs on changes
     browsersync = require('browser-sync').create(),
+    //minifies js
     uglify = require('gulp-uglify'),
     gulpif = require('gulp-if'),
+    //compress images dependent on pngcruhs
     imagemin = require('gulp-imagemin'),
     pngcrush = require('imagemin-pngcrush'),
+    //minifies json files
     jsonminify = require('gulp-jsonminify'),
+    // deletes directories
     clean = require('gulp-clean'),
+    //concatenates files
     concat = require('gulp-concat');
-//for chacebusting and file hasing
 
+//for cachebusting and file hasing
 var rev = require('gulp-rev'),
     revDel = require('rev-del'),
-    cachebust = require('gulp-cachebust'),
     revReplace = require('gulp-rev-replace');
 
 var env,
@@ -30,38 +38,34 @@ var env,
     assets,
     outputDir,
     jsonSources,
-    //add sassStyle to compass style to toggle between environments
     sassStyle,
     proxy,
     prod,
     isProd,
     isDev,
-    dList,
     limbo;
 
 
 //sets a variable that if set = production environment otherwise it defaults to development, at cmd prompt use $ NODE_ENV=production gulp
 env = process.env.NODE_ENV || 'development';
-//boolean for is prod = true
+
+//boolean for is prod = true or isDev = true
 isProd = env==='production';
 isDev = env === 'development';
 
-if (env === 'development') {
+//variable changes in different environments
+if (isDev) {
     outputDir = 'builds/development/';
     sassStyle = 'expanded';
     proxy = 'bmb.dev';
-    //default list of tasks to run when in development
-    dList = ['jsConcat', 'compass', 'watch', 'browsersync'];
 } else {
     outputDir = 'builds/production/';
     sassStyle = 'compressed';
     proxy = 'bmb.prod';
-    //default list of tasks to run when in production
-    dList = ['revreplace', 'browsersync'];
 }
 
 
-
+//variables fr source files if needed
 
 jsSources = [
     'components/scripts/functions.js',
@@ -81,23 +85,25 @@ limbo = "limbo/";
 prod = 'builds/production/';
 
 
-
+//deletes production and interim files for prod build
 gulp.task('cleanProd', function(){
-      gulp.src('builds/production/', {read: false})
+      gulp.src(prod, {read: false})
        .pipe(clean());
         gulp.src(limbo, {read:false})
         .pipe(clean());
 });
 
+//concatenates js sources into one script file and adds libraries if called minifies if isProd amd moves to limbo folder
 gulp.task('jsConcat', function () {
     gulp.src(jsSources)
         .pipe(concat('scripts.js'))
         .pipe(browserify())
         .pipe(gulp.dest('builds/development/js'))
-        .pipe(gulpif(isProd, uglify))
-        .pipe(gulp.dest(limbo + 'js'))
+        .pipe(gulpif(isProd, uglify()))
+        .pipe(gulpif(isProd, gulp.dest(limbo + 'js')))
 });
 
+//runs compass to concatenate scss files and create css. if isProd will minifies buy using the sassStyle variable and moves to limbo
 gulp.task('compass', function () {
     gulp.src(sassSources)
         .pipe(compass({
@@ -110,13 +116,14 @@ gulp.task('compass', function () {
         .pipe(browsersync.stream());
 });
 
-
+//if isProd will minify json files and move to limbo
 gulp.task('jsonminify', function () {
     gulp.src('builds/development/js/*.json')
         .pipe(gulpif(isProd, jsonminify()))
         .pipe(gulpif(isProd, gulp.dest(limbo + 'js')));
 });
 
+//if isProd compresses image files and rmoves viewbox for svg and puts in limbo if i
 gulp.task('images', function () {
     gulp.src('builds/development/images/**/*.*')
         .pipe(gulpif(isProd, imagemin({
@@ -126,7 +133,7 @@ gulp.task('images', function () {
             }],
             use: [pngcrush()]
         })))
-        .pipe(gulpif(isProd, gulp.dest(limbo + 'js')));
+        .pipe(gulpif(isProd, gulp.dest(limbo + 'images')));
 
 });
 
@@ -139,53 +146,64 @@ gulp.task('browsersync', function () {
     });
 });
 
+//if isProd moves php files to limbo
 gulp.task('movePHP', function () {
     gulp.src('builds/development/*.php')
         .pipe(gulpif(isProd,
             gulp.dest(limbo)))
 });
 
+//if isProd moves .pdf files to limbo
 gulp.task('moveDocs', function () {
     gulp.src('builds/development/docs/*.*')
         .pipe(gulpif(isProd,
             gulp.dest(limbo + 'docs')))
 });
 
-gulp.task('moveFavicon', function () {
-    gulp.src('builds/development/favicon/*.*')
-        .pipe(gulpif(isProd,
-            gulp.dest(limbo + 'favicon')))
-});
 
+//if isProd moves web fonts files to limbo
 gulp.task('moveWebFonts', function () {
     gulp.src('builds/development/web_fonts/*.*')
         .pipe(gulpif(isProd,
             gulp.dest(outputDir + 'web_fonts')));
 });
         
-//rename assets based on content cache
 
+// three tasks for file hashing and cachebusting
+//***********************************************************
 
+//runs all dependencies to create limbo files structure use node_env=production at prompt
+gulp.task('kickit', ['jsConcat', 'compass', 'movePHP', 'moveWebFonts', 'jsonminify', 'images', 'moveFavicon', 'moveDocs']);
 
-gulp.task('rev', ['jsConcat', 'compass', 'movePHP', 'moveWebfonts', 'jsonminify', 'images', 'moveFavicon', 'moveDocs'], function () {
-    gulp.src(limbo + '**/*.{js,css,jpeg,JPG,png,jpg,svg,ico,pdf,json}')
+//creates signature on all files indicatedand moves them to prod
+gulp.task('rev', function () {
+    gulp.src(limbo + '**/*.{js,css,json,png,ico}')
         .pipe(rev())
-        .pipe(gulp.dest('builds/production/'))
+        .pipe(gulp.dest(prod))
         .pipe(rev.manifest())
-        .pipe(gulp.dest('builds/production/'))
-        .pipe(revDel({dest: 'builds/production/'}))
-        .pipe(gulp.dest('builds/production/'))
+        .pipe(gulp.dest(prod))
+        .pipe(revDel({dest: prod}))
+        .pipe(gulp.dest(prod))
 });
 
-gulp.task('revreplace', ['rev', 'browsersync'], function () {
-    var manifest = gulp.src('builds/production/rev-manifest.json');
-    
-    return gulp.src(limbo + '*.php')
-    // Awesome html stuff 
-        .pipe(gulpif(isProd,(revReplace({manifest: manifest,
+gulp.task('revreplace', function () {
+    var manifest = gulp.src(prod + 'rev-manifest.json');
+    return gulp.src(limbo + '**/*.{php,js')
+        .pipe(revReplace({manifest: manifest,
                           replaceInExtensions: ['.js', '.css', '.php']
-                         }))))
-        .pipe(gulp.dest('builds/production/'));
+                         }))
+        .pipe(gulp.dest(prod));
+});
+
+gulp.task('revcss', function(){
+    
+    var manifest = gulp.src('builds/production/rev-manifest.json');
+    return gulp.src('builds/production/**/*.{css,js}')
+        .pipe(revReplace({manifest: manifest,
+                          replaceInExtensions: ['.js', '.css', '.php']
+                         }))
+        .pipe(gulp.dest(prod+'css'));
+
 });
 
 gulp.task('reload', function () {

@@ -316,7 +316,7 @@ blockquote p {
   height: 100px;
   position: fixed;
   left: 0;
-  background: url("../images/BMB_Web_MiniBanner1.png") no-repeat white;
+  background: url("../images/BMB_Web_MiniBanner1-0abd0685cb.png") no-repeat white;
   background-position: center top;
   background-size: contain;
   margin: 0;
@@ -324,13 +324,13 @@ blockquote p {
 }
 
 .logo-pic2 #logo {
-  background: url("../images/BMB_Web_MiniBanner2.png") white no-repeat;
+  background: url("../images/BMB_Web_MiniBanner2-45208b9674.png") white no-repeat;
   background-position: center top;
   background-size: contain;
 }
 
 .logo-pic3 #logo {
-  background: url(../images/Back2Back_AboutUsBanner.png) black no-repeat;
+  background: url(../images/Back2Back_AboutUsBanner-479d3d48d2.png) black no-repeat;
   background-position: center top;
   background-size: contain;
 }
@@ -553,7 +553,7 @@ blockquote p {
   position: relative;
   width: 100%;
   display: block;
-  background: url(../images/BMB_WebBanner1300T.png) no-repeat;
+  background: url(../images/BMB_WebBanner1300T-905ba8da37.png) no-repeat;
   background-position: top 1em center;
   background-size: cover;
   margin-bottom: 0;
@@ -583,7 +583,7 @@ blockquote p {
 }
 
 .door {
-  background: url(../images/Door_Portal_25p.png) no-repeat;
+  background: url(../images/Door_Portal_25p-9bfaec35f6.png) no-repeat;
   background-position: center top;
   min-width: 100px;
   max-width: 150px;
@@ -655,7 +655,7 @@ a.footer-anchor span {
 
 .cat1 div {
   width: 100%;
-  background: url(../images/Portal_Icons_5Colors160pix.png) no-repeat #fafafa;
+  background: url(../images/Portal_Icons_5Colors160pix-6c0c37cfc8.png) no-repeat #fafafa;
   display: block;
   min-height: 200px;
   border-radius: 20px 20px 20px 20px;
@@ -1263,7 +1263,7 @@ textarea:focus {
 /*================max-width 928 px*/
 @media only screen and (max-width: 928px) {
   #hero {
-    background: url(../images/BMB_WebBanner960T.png) no-repeat white;
+    background: url(../images/BMB_WebBanner960T-77169de328.png) no-repeat white;
     background-position: center top 25px;
   }
 
@@ -1297,7 +1297,7 @@ textarea:focus {
 }
 @media only screen and (max-width: 790px) {
   #hero {
-    background: url(../images/BMB_WebBanner750.png) no-repeat white;
+    background: url(../images/BMB_WebBanner750-c96f44772d.png) no-repeat white;
     background-position: center top 25px;
   }
 
@@ -1420,7 +1420,7 @@ textarea:focus {
   }
 
   #hero {
-    background: url(../images/BMB_WebBannerHead_750.png) no-repeat white;
+    background: url(../images/BMB_WebBannerHead_750-3528255f22.png) no-repeat white;
     background-position: center top 45px;
     background-size: contain;
   }
@@ -1438,7 +1438,7 @@ textarea:focus {
 
   .door {
     display: block;
-    background: url(../images/OpenDoor_25p.png) no-repeat;
+    background: url(../images/OpenDoor_25p-b3d616308d.png) no-repeat;
     background-size: contain;
     background-position: center top;
     min-width: 50px;
@@ -1453,7 +1453,7 @@ textarea:focus {
   }
 
   .door:hover {
-    background: url(../images/OpenDoor_25p.png) no-repeat;
+    background: url(../images/OpenDoor_25p-b3d616308d.png) no-repeat;
     background-size: contain;
     background-position: center center;
     -webkit-box-shadow: 8px 8px 9px 0px #0285BF;
@@ -1462,7 +1462,7 @@ textarea:focus {
   }
 
   #logo, .logo-pic1 #logo, .logo-pic2 #logo, .logo-pic3 #logo {
-    background: url(../images/BMB_logo_no_tag_25p.png) no-repeat;
+    background: url(../images/BMB_logo_no_tag_25p-d5e21d48c7.png) no-repeat;
     height: 56px;
     background-position: top center;
     width: 100%;

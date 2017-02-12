@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'angelina';
+	src: url('./angelina.eot');
+	src: local('angelina'), url('./angelina.woff') format('woff'), url('./angelina.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_4367">Text with this font applied</p> */
+.fontsforweb_fontid_4367 {
+	font-family: 'angelina' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */
