@@ -200,6 +200,11 @@ gulp.task('revreplace', function () {
                           replaceInExtensions: ['.js', '.css', '.php']
                          }))
         .pipe(gulp.dest(prod));
+    return gulp.src('builds/production/**/*.{css,js}')
+        .pipe(revReplace({manifest: manifest,
+                          replaceInExtensions: ['.js', '.css', '.php']
+                         }))
+        .pipe(gulp.dest(prod));
 });
 
 //replacess all references in .css and .js files that are in prod and saves them to prod
