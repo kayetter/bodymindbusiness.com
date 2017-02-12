@@ -20,15 +20,8 @@
     <meta name="twitter:title" content="BodyMindBusiness">
     <meta name="twitter:description" content="At BodyMindBusiness, we help you reclaim the way you work, think and live. We seek to transform lives, companies and communities through elevate wellness, productivity and profits.">
     <meta name="twitter:domain" content="bodymindbusiness.com">
-    <?php
-
-    echo '
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://bodymindbusiness.com/images/BMB-WebBannerHead_280.png?'.uniqid().'">
-';
-
-    ?>
-
+<meta name="twitter:image" content="https://bodymindbusiness.com/images/BMB-WebBannerHead_280.png">
 
         <!--===========closest google font PT Sans====================-->
         <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">

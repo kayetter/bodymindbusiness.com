@@ -316,7 +316,7 @@ blockquote p {
   height: 100px;
   position: fixed;
   left: 0;
-  background: url("../images/BMB_Web_MiniBanner1%20(1).png") no-repeat white;
+  background: url("../images/BMB_Web_MiniBanner1.png") no-repeat white;
   background-position: center top;
   background-size: contain;
   margin: 0;
@@ -324,7 +324,7 @@ blockquote p {
 }
 
 .logo-pic2 #logo {
-  background: url("../images/BMB_Web_MiniBanner2%20(1).png") white no-repeat;
+  background: url("../images/BMB_Web_MiniBanner2.png") white no-repeat;
   background-position: center top;
   background-size: contain;
 }

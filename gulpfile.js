@@ -137,6 +137,7 @@ gulp.task('images', function () {
 
 });
 
+//opens browser that is synced with changes
 gulp.task('browsersync', function () {
     browsersync.init({
         open: 'external',
@@ -144,6 +145,11 @@ gulp.task('browsersync', function () {
         proxy: proxy,
         port: 80
     });
+});
+
+//reloads browser with browser sync
+gulp.task('reload', function () {
+    browsersync.reload(outputDir + '*.php')
 });
 
 //if isProd moves php files to limbo
@@ -175,7 +181,7 @@ gulp.task('moveWebFonts', function () {
 //runs all dependencies to create limbo files structure use node_env=production at prompt
 gulp.task('kickit', ['jsConcat', 'compass', 'movePHP', 'moveWebFonts', 'jsonminify', 'images', 'moveFavicon', 'moveDocs']);
 
-//creates signature on all files indicatedand moves them to prod
+//creates signature on all files indicated and moves them to prod folder and creates manifest -- rev-manifest.json
 gulp.task('rev', function () {
     gulp.src(limbo + '**/*.{js,css,json,png,ico}')
         .pipe(rev())
@@ -186,6 +192,7 @@ gulp.task('rev', function () {
         .pipe(gulp.dest(prod))
 });
 
+//replaces all references to the modified file names in PHP files that are sitting in limbo, then moves them to prod
 gulp.task('revreplace', function () {
     var manifest = gulp.src(prod + 'rev-manifest.json');
     return gulp.src(limbo + '**/*.{php,js')
@@ -195,6 +202,7 @@ gulp.task('revreplace', function () {
         .pipe(gulp.dest(prod));
 });
 
+//replacess all references in .css and .js files that are in prod and saves them to prod
 gulp.task('revcss', function(){
     
     var manifest = gulp.src('builds/production/rev-manifest.json');
@@ -202,13 +210,10 @@ gulp.task('revcss', function(){
         .pipe(revReplace({manifest: manifest,
                           replaceInExtensions: ['.js', '.css', '.php']
                          }))
-        .pipe(gulp.dest(prod+'css'));
-
+        .pipe(gulp.dest(prod));
 });
 
-gulp.task('reload', function () {
-    browsersync.reload(outputDir + '*.php')
-});
+
 
 
 gulp.task('watch', function () {
@@ -219,4 +224,4 @@ gulp.task('watch', function () {
 
 
 
-gulp.task('default', dList);
+gulp.task('default', ['jsConcat', 'compass', 'watch', 'browsersync']);
