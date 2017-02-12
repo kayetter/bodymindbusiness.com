@@ -85,13 +85,7 @@ limbo = "limbo/";
 prod = 'builds/production/';
 
 
-//deletes production and interim files for prod build
-gulp.task('cleanProd', function(){
-      gulp.src(prod, {read: false})
-       .pipe(clean());
-        gulp.src(limbo, {read:false})
-        .pipe(clean());
-});
+
 
 //concatenates js sources into one script file and adds libraries if called minifies if isProd amd moves to limbo folder
 gulp.task('jsConcat', function () {
@@ -175,15 +169,24 @@ gulp.task('moveWebFonts', function () {
 });
         
 
+//==============MAKE PRODUCTION BUILD
 // three tasks for file hashing and cachebusting
 //***********************************************************
 
-//runs all dependencies to create limbo files structure use node_env=production at prompt
-gulp.task('kickit', ['jsConcat', 'compass', 'movePHP', 'moveWebFonts', 'jsonminify', 'images', 'moveFavicon', 'moveDocs']);
+//deletes production and interim files for prod build -- do this first
+gulp.task('cleanProd', function(){
+    gulp.src(prod, {read: false})
+        .pipe(clean());
+    gulp.src(limbo, {read:false})
+        .pipe(clean());
+});
 
-//creates signature on all files indicated and moves them to prod folder and creates manifest -- rev-manifest.json
+//runs all dependencies to create limbo files structure use node_env=production at prompt do this second
+gulp.task('kickit', ['jsConcat', 'compass', 'movePHP', 'moveWebFonts', 'jsonminify', 'images', 'moveDocs']);
+
+//creates signature on all files indicated and moves them to prod folder and creates manifest -- rev-manifest.json. do this third
 gulp.task('rev', function () {
-    gulp.src(limbo + '**/*.{js,css,json,png,ico}')
+    gulp.src(limbo + '**/*.{js,css,json,png,ico,jpg,JPG,jpeg,pdf}')
         .pipe(rev())
         .pipe(gulp.dest(prod))
         .pipe(rev.manifest())
@@ -192,15 +195,10 @@ gulp.task('rev', function () {
         .pipe(gulp.dest(prod))
 });
 
-//replaces all references to the modified file names in PHP files that are sitting in limbo, then moves them to prod
+//replaces all references to the modified file names in PHP files that are sitting in limbo, then moves them to prod run revcss fourth as revreplace is a dependency
 gulp.task('revreplace', function () {
     var manifest = gulp.src(prod + 'rev-manifest.json');
-    return gulp.src(limbo + '**/*.{php,js')
-        .pipe(revReplace({manifest: manifest,
-                          replaceInExtensions: ['.js', '.css', '.php']
-                         }))
-        .pipe(gulp.dest(prod));
-    return gulp.src('builds/production/**/*.{css,js}')
+    return gulp.src(limbo + '**/*.php')
         .pipe(revReplace({manifest: manifest,
                           replaceInExtensions: ['.js', '.css', '.php']
                          }))
@@ -208,7 +206,7 @@ gulp.task('revreplace', function () {
 });
 
 //replacess all references in .css and .js files that are in prod and saves them to prod
-gulp.task('revcss', function(){
+gulp.task('revcss', ['revreplace'], function(){
     
     var manifest = gulp.src('builds/production/rev-manifest.json');
     return gulp.src('builds/production/**/*.{css,js}')
