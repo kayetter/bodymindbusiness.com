@@ -27,15 +27,9 @@
         <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
         <!--        script for adobe tk-myriad-pro-->
-        <script src="https://use.typekit.net/wfo4fav.js"></script>
-        <script>
-            try {
-                Typekit.load({
-                    async: true
-                });
-            } catch (e) {}
-        </script>
-
+    <script src="https://use.typekit.net/tln5bfk.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+       
         <!--        favicon links                        -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
