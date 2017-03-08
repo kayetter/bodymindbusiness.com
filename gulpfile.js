@@ -2,7 +2,17 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     //coffee not used
     coffee = require('gulp-coffee'),
-    //compass concatenates scss files into css 
+    //alternative preprocess to compass
+    postcss = require('gulp-postcss'),
+    //plugin for post css that minifies css
+    cssnano = require('cssnano'),
+    //plugin for postcss that adds vendor prefixes
+    autoprefixer = require('autoprefixer'),
+    //plugin for postcss that allows you to use new css features
+    cssnext = require('cssnext'),
+    //plugin for postcss that allows you to right css like sass
+    precss = require('precss'),
+    //compass concatenates scss files into css
     compass = require('gulp-compass'),
     //includes libraries in js scripts where called
     browserify = require('gulp-browserify'),
@@ -110,6 +120,17 @@ gulp.task('compass', function () {
         .pipe(browsersync.stream());
 });
 
+gulp.task('css', function(){
+  gulp.src('css/style.css')
+  .pipe(postcss([
+    // cssnano(),
+    autoprefixer(),
+    precss()
+  ]))
+  .on('error', gutil.log)
+  .pipe(gulp.dest('css/processed/'));
+});
+
 //if isProd will minify json files and move to limbo
 gulp.task('jsonminify', function () {
     gulp.src('builds/development/js/*.json')
@@ -167,7 +188,7 @@ gulp.task('moveWebFonts', function () {
         .pipe(gulpif(isProd,
             gulp.dest(outputDir + 'web_fonts')));
 });
-        
+
 
 //==============MAKE PRODUCTION BUILD
 // three tasks for file hashing and cachebusting
@@ -207,7 +228,7 @@ gulp.task('revreplace', function () {
 
 //replacess all references in .css and .js files that are in prod and saves them to prod
 gulp.task('revcss', ['revreplace'], function(){
-    
+
     var manifest = gulp.src('builds/production/rev-manifest.json');
     return gulp.src('builds/production/**/*.{css,js}')
         .pipe(revReplace({manifest: manifest,
