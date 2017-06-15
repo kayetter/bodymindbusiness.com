@@ -4,7 +4,7 @@
 
  <body class="white-page logo-pic1">
     <?php require "header.php"; ?>
-     
+
     <main class="portal">
         <article class="inspired-text" id="welcome">
             <h1 class="first-title">Welcome to a new way of being. </h1>
@@ -165,9 +165,9 @@
         </aside>
         <!--end of claim of worth-->
     </main>
-        
-    <?php 
-     require "back-to-top.php"; 
+
+    <?php
+     require "back-to-top.php";
      require "footer.php"; ?>
     </body>
 </html>

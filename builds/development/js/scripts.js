@@ -259,16 +259,6 @@ $(document).ready(function () {
         };
     });
 }); /* end of document ready*/
-var $, fill;
-
-$ = require('jquery');
-
-(fill = function(item) {
-  return $('.tagline').append("" + item);
-})('The  creative forever in Art Ever');
-
-fill;
-
 },{"jquery":3,"jquery-cycle":2,"mustache":4}],2:[function(require,module,exports){
 /*!
  * jQuery Cycle Plugin (with Transition Definitions)
