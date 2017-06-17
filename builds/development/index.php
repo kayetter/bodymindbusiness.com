@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require("head.php"); ?>
 
-<?php include "head.php";  ?>
 <body id="first-page">
-    <?php include "header.php"; ?>
+  <?php require("header.php") ?>
         <main class="front-page">
-
+ this is the main body
         </main>
-
-        <?php require "footer.php"; ?>
 
 </body>
 

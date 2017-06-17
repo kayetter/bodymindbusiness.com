@@ -7,6 +7,12 @@
             "snippet": "Your insights and grace were a true gift. Thank you for creating a space that allowed me to explore and for your gentle guidance",
             "category": "individual"
     },
+    {
+        "name": "Kristin",
+        "message": "Debra is the most authentic, accepting and genuine person I know. Her ability to hold everyone whole, well and resourceful inspires trust and motivates people to reach beyond their comfort zones. It wasn’t just the impact to the bottom line that was positively impacted by Deb’s presence and coaching activities (whether one-on-one or in groups) as the increase in productivity was documented over and over. It was the tangible boost to morale, the witnessing of teams that supported one another and built each other up that convinced me that there is an approach to employee development that can deliver results and bring life-fulfillment to employees at all levels. To be perfectly honest, Debra exemplifies the caring and concern that is aspired to in many corporate cultures. She is courageous in having the crucial conversations, unapologetic in her authenticity, and driven to find fulfillment for the benefit of both parties. Debra’s impact on those with whom she connects is extraordinary. I am continuously amazed by the growth she elicits from others and it reinforces my belief in the source of goodness in all things.",
+        "snippet": "Debra’s impact on those with whom she connects is extraordinary. I am continuously amazed by the growth she elicits from others.",
+        "category": "team"
+},
         {
             "name": "Corina",
             "message": "Deb has helped me to take action steps towards self-discovery and accomplishment, getting to know better my true self, and to recognize and work with my thoughts to align them with the True Self. I lost 23 pounds so far and it has been 6 months since I quit eating pork and beef (yeee-haaa). Also this coaching has been helping me to understand better the actions of people around me, and I’m improving my love-relationship by looking at things from a better perspective",
@@ -25,7 +31,7 @@
             "message":" Before I met Deb Jones, I was fearful and mistrusting. Yet, in just 2-4 weeks, Deb guided me through monumental changes, allowing me to stop anxiety and fear producing behaviors, get out of my head, care for and trust others, and begin living instead of floundering through my existence. She gave me tools to avoid old habitual behaviors and free myself from my negative self-talk. She intuitively worked with me, helping me to find the strength that resides within me and resources to maintain a positive energy flow. These changes will last the rest of my life as I no longer feel imprisoned.",
             "snippet": "I found the strength that resides within me... These changes will last the rest of my life as I no longer feel imprisoned",
             "category": "individual"
-        },        
+        },
         {
             "name": "Misiker",
             "message": "Deb’s coaching is a meaningful relationship that’s based on trust in who you are and what you have to offer in your arsenal of gifts. My favorite exercise was when you asked repeatedly at the beginning of our 1:1 session “who are you”?,  I don’t think anyone has ever asked me that in a way that you did, provoking an introspective quest for self-awareness from the core. Just being able to vocalize who I genuinely believed I was with honesty was an awesome exercise. Whether the conclusion of who I thought I was, was good, bad or indifferent didn’t matter so much as the realization and confession of it. This awakening inspired me to strive to become a better, realer and more grounded me than the futile attempt to create a persona to appeal to my environment.",
@@ -40,7 +46,7 @@
         },
         {
             "name": "Kaitlyn",
-            "message": "We had an instance where our team was not communicating well and it was causing a lot of tension between workers. We got together for a group coaching session so that everyone could communicate their concerns in an environment where we were encouraged to speak freely. By taking the time to sit down and have a coaching session we are now able to work better as a team. It has personally impacted me by how I notice and understand each of my coworkers individually which in turn helps me know how to communicate and work with them more effectively.", 
+            "message": "We had an instance where our team was not communicating well and it was causing a lot of tension between workers. We got together for a group coaching session so that everyone could communicate their concerns in an environment where we were encouraged to speak freely. By taking the time to sit down and have a coaching session we are now able to work better as a team. It has personally impacted me by how I notice and understand each of my coworkers individually which in turn helps me know how to communicate and work with them more effectively.",
             "snippet": "how I notice and understand each of my coworkersin turn helps me know how to communicate and work with them more effectively.",
             "category": "team"
         },
@@ -106,4 +112,3 @@
         }
 ]
 }
-
