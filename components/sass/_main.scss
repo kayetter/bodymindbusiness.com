@@ -1,7 +1,7 @@
 /*==================main layout styles=================================*/
 
 body {
-    max-width: 1300px;
+    // max-width: 1300px;
     margin: auto;
     position: relative;
     overflow: scroll;
@@ -18,10 +18,13 @@ header {
 }
 
 main {
-    margin: auto;
-    padding-top: 145px;
+    position: relative;
+    margin-top: 38px;
+    // height: 100vh;
+    width: 100vw;
+    // padding-top: 145px;
     display: block;
-    width: 80%;
+    // width: 80%;
 }
 
 footer {
@@ -33,16 +36,18 @@ footer {
 /*==============main styles=================*/
 
 body {
-    font-size: 140%;
+    font-size: 120%;
     font-family: 'myriad-pro';
     font-style: normal;
     font-weight: 300;
+    position: relative;
 }
 
 article,
 aside {
     padding: 0.2em 0 1em;
     margin: 0 auto 2em;
+    width: 90%;
 }
 
 h1 {
@@ -128,14 +133,15 @@ blockquote p {
     margin: 0;
 }
 
+/*not used in current iteration*/
 .offset {
     display: block;
     content: "";
-    height: 140px;
+    height: 157px; /*calculate offset*/
     /* Give height of your fixed element */
     /* Give negative margin of your fixed element */
-    margin-top: -140px;
-    visibility: hidden;
+    margin-top: -157px;
+    visibility: visible;
 }
 
 /*-----------back to top fixed link styles--------------*/

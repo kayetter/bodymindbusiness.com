@@ -2,6 +2,44 @@
 
 /*==================choose portal section cat1=======================*/
 
+#select-me{
+  cursor: pointer;
+}
+#deb-main-img {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  z-index: 2;
+  right: 0;
+  top: 0;
+}
+
+.front-page {
+  margin-top: 39px;
+  // height: 120vh;
+  /*calculate the height of big deb img*/
+}
+
+.body-content {
+  position: absolute;
+  overflow: auto;
+  height: 443px; /*calculate big deb-main-img minus .logo-main-img*/
+  width: 60%;
+  top: 157px; /*calculate as logo-img-size*/
+  left: 0;
+  z-index: -20;
+}
+
+#logo-main-img{
+  position: absolute;
+  max-width: 1040px;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background: white;
+}
+
+
 .choose-icon {
     display: flex;
     flex-flow: row wrap;

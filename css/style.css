@@ -130,9 +130,12 @@ summary {
   position: relative;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /*==================main layout styles=================================*/
 body {
-  max-width: 1300px;
   margin: auto;
   position: relative;
   overflow: scroll;
@@ -149,10 +152,10 @@ header {
 }
 
 main {
-  margin: auto;
-  padding-top: 145px;
+  position: relative;
+  margin-top: 38px;
+  width: 100vw;
   display: block;
-  width: 80%;
 }
 
 footer {
@@ -162,16 +165,18 @@ footer {
 
 /*==============main styles=================*/
 body {
-  font-size: 140%;
+  font-size: 120%;
   font-family: 'myriad-pro';
   font-style: normal;
   font-weight: 300;
+  position: relative;
 }
 
 article,
 aside {
   padding: 0.2em 0 1em;
   margin: 0 auto 2em;
+  width: 90%;
 }
 
 h1 {
@@ -253,14 +258,16 @@ blockquote p {
   margin: 0;
 }
 
+/*not used in current iteration*/
 .offset {
   display: block;
   content: "";
-  height: 140px;
+  height: 157px;
+  /*calculate offset*/
   /* Give height of your fixed element */
   /* Give negative margin of your fixed element */
-  margin-top: -140px;
-  visibility: hidden;
+  margin-top: -157px;
+  visibility: visible;
 }
 
 /*-----------back to top fixed link styles--------------*/
@@ -293,6 +300,7 @@ blockquote p {
 .nav {
   max-width: 1300px;
   position: fixed;
+  height: 39px;
   top: 100px;
   text-align: center;
   width: 100%;
@@ -356,6 +364,7 @@ blockquote p {
   font-family: 'angelina';
   transition: all .15s linear;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .nav ul li a:hover {
@@ -394,6 +403,7 @@ blockquote p {
 .nav .submenu li {
   display: block;
   width: 100%;
+  background: #815397;
 }
 
 .nav .submenu li a {
@@ -475,7 +485,7 @@ blockquote p {
   background: #946E4A;
 }
 
-.purple-page main {
+.purple-page main, .purple-section {
   background: #815397;
   padding-bottom: 10%;
 }
@@ -493,18 +503,19 @@ blockquote p {
   border-bottom: 3px solid #714985;
 }
 
-.brown-page h1, .purple-page h1 {
+.brown-page h1, .purple-page h1, .purple-section h1 {
   color: white;
   font-family: "angelina";
   padding: 1em 0 0;
+  background-color: transparent;
 }
 
-.brown-page main a, .purple-page main address a {
+.brown-page main a, .purple-page main address a, .purple-section address a {
   color: white;
   text-decoration: none;
 }
 
-.brown-page a:hover, .purple-page a:hover {
+.brown-page a:hover, .purple-page a:hover, .purple-section a:hover {
   color: black;
 }
 
@@ -613,7 +624,7 @@ footer {
   bottom: 0;
   background: #815397;
   color: white;
-  z-index: 0;
+  z-index: 3;
   align-items: center;
 }
 
@@ -641,6 +652,45 @@ a.footer-anchor span {
 }
 
 /*==================choose portal section cat1=======================*/
+#select-me {
+  cursor: pointer;
+}
+
+#deb-main-img {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  z-index: 2;
+  right: 0;
+  top: 0;
+}
+
+.front-page {
+  margin-top: 39px;
+  /*calculate the height of big deb img*/
+}
+
+.body-content {
+  position: absolute;
+  overflow: auto;
+  height: 443px;
+  /*calculate big deb-main-img minus .logo-main-img*/
+  width: 60%;
+  top: 157px;
+  /*calculate as logo-img-size*/
+  left: 0;
+  z-index: -20;
+}
+
+#logo-main-img {
+  position: absolute;
+  max-width: 1040px;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background: white;
+}
+
 .choose-icon {
   display: flex;
   flex-flow: row wrap;
@@ -815,6 +865,10 @@ ol li:before {
 }
 
 /*==============DIY Exercises Styles ============================*/
+#diy-exercises {
+  padding-top: 80px;
+}
+
 .narrow-list {
   max-width: 300px;
 }
@@ -1244,6 +1298,11 @@ textarea:focus {
   display: none;
 }
 
+@media only screen and (min-width: 1200px) {
+  #deb-main-img {
+    max-width: 600px;
+  }
+}
 /*---media query to center fixed nav bar with screens greater than 1300px*/
 @media only screen and (min-width: 1300px) {
   .nav,
@@ -1280,7 +1339,7 @@ textarea:focus {
   }
 
   main {
-    padding-top: 145px;
+    padding-top: 80px;
   }
 
   .enter {
@@ -1322,8 +1381,13 @@ textarea:focus {
   }
 
   main {
+    margin: auto;
     padding-top: 112px;
     width: 95%;
+  }
+
+  article, aside {
+    width: 100%;
   }
 
   .nav {
@@ -1331,12 +1395,12 @@ textarea:focus {
     transform: translate(-900px, 0);
     /*         Optionally, we animate the drawer. */
     transition: transform .5s ease;
-    z-index: 10;
     width: 25%;
   }
 
   .nav ul {
     display: inline-block;
+    background: #815397;
   }
 
   #menu {
@@ -1354,7 +1418,7 @@ textarea:focus {
   }
 
   #menu svg {
-    width: 41px;
+    width: 64px;
     fill: white;
     padding-left: 4%;
   }
@@ -1378,8 +1442,9 @@ textarea:focus {
   /*-------dynamic menu styling----------------------*/
   .menu-respond {
     position: fixed;
-    top: 101px;
+    top: 88px;
     width: 140px;
+    background: #815397;
     transition: transform 0 .5s ease;
     -webkit-transform: translate(0px, 0px);
     transform: translate(0px, 0px);
@@ -1431,34 +1496,13 @@ textarea:focus {
     width: 100%;
   }
 
-  .enter h2 {
+  #deb-main-img, #logo-main-img, .body-content {
+    position: relative;
+    height: auto;
+    width: 100%;
     display: block;
-    margin-right: 0;
-  }
-
-  .door {
-    display: block;
-    background: url(../images/OpenDoor_25p.png) no-repeat;
-    background-size: contain;
-    background-position: center top;
-    min-width: 50px;
-    width: 50px;
-    height: 80px;
-    padding: 2%;
-    margin: 1em auto;
-    border-radius: 10%;
-    -webkit-box-shadow: 8px 8px 9px 0px #5c5c5c;
-    -moz-box-shadow: 8px 8px 9px 0px #5c5c5c;
-    box-shadow: 8px 8px 9px 0px #5c5c5c;
-  }
-
-  .door:hover {
-    background: url(../images/OpenDoor_25p.png) no-repeat;
-    background-size: contain;
-    background-position: center center;
-    -webkit-box-shadow: 8px 8px 9px 0px #0285BF;
-    -moz-box-shadow: 8px 8px 9px 0px #0285BF;
-    box-shadow: 8px 8px 9px 0px #0285BF;
+    margin: auto;
+    top: 0;
   }
 
   #logo, .logo-pic1 #logo, .logo-pic2 #logo, .logo-pic3 #logo {
@@ -1483,7 +1527,7 @@ textarea:focus {
   }
 
   blockquote {
-    width: 75%;
+    width: 90%;
     font-size: 100%;
   }
 

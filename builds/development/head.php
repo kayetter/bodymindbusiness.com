@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BodyMindBusiness</title>
 
     <!----Facebook OG content -->
@@ -29,12 +31,12 @@
         <!--        script for adobe tk-myriad-pro-->
     <script src="https://use.typekit.net/tln5bfk.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-       
+
         <!--        favicon links                        -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
         <!-------------Stylesheet Links---------------->
         <link rel="stylesheet" href="css/style.css">
- 
+
 </head>

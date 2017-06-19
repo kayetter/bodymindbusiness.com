@@ -98,6 +98,37 @@ function updatePositionSm() {
     console.log("YOU ARE FREE YOU ARE FREE YOU ARE FREE update the submenu position");
 }
 
+function calcFrontPageHt(){
+  var width = $(window).width();
+  var img_ht = $("#deb-main-img").height();
+  var img_width = $("#deb-main-img").width();
+  var logo_ht = $("img#logo-main-img").height();
+  /*have to include nav because fixed and therefore removed from dom*/
+  var body_content_ht = img_ht - logo_ht -10;
+  var body_content_width = width - img_width + 30;
+  console.log("bodyContent: " + body_content_ht);
+  console.log("logoHeight:" + logo_ht);
+  if (width > 679) {
+    $("main.front-page").css("height", img_ht+"px");
+    $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+"px", "width": body_content_width+"px"});
+    /*set offset for  navigation purposes*/
+    // $(".offset").css({"height": logo_ht + "px", "margin-top": "-" + logo_ht + "px"});
+  }
+}
+
+/*using scroll to to navigate to an id appended with "anchor"*/
+function anchorBodyContent($id){
+  var $to = "#" + $id + "-anchor";
+  if ($(window).width() > 678) {
+  $(".body-content").scrollTo($to, 800);
+  $(window).scrollTo(0,0);
+  } else {
+    $(window).scrollTo($to, 800, {
+        offset: -38
+      });
+  }
+}
+
 function calcMainPosition() {
     var header = "";
     var nav = "";

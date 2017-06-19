@@ -1,30 +1,23 @@
+
 $(document).ready(function () {
     var timer
     getTestimonials();
 
     addSubmenuLi();
 
-    calcMainPosition();
+    calcFrontPageHt();
 
-    /*---reloads window when width changes only ---- */
     var width = $(window).width();
-    $(window).resize(function () {
-        if ($(this).width() != width) {
-            window.location.reload();
-            calcMainPosition();
-        };
-    });
+
+    console.log("pathname: " + window.location.pathname);
+    localStorage.setItem("width", width);
+    stored_width = localStorage.getItem("width");
+    console.log("stored width: " + stored_width)
 
 
 
-    /*---re loads page on orientation or size change to update submenu classes ---------*/
 
-    //    $(window).on("resize orientationChange", function () {
-    //        location.reload();
-    //    });
-
-
-    /** Open the drawer when the menu icon is clicked.
+  /** Open the drawer when the menu icon is clicked.
      */
     $("#menu").click(toggleMenu);
 
@@ -58,6 +51,7 @@ $(document).ready(function () {
     $(".back-to-top")
         .click(function () {
         $(window).scrollTop(0);
+        $(".body-content").scrollTop(0);
     });
 
 
@@ -86,5 +80,46 @@ $(document).ready(function () {
                 $("div.back-to-top").css("display", "none");
             }, 6000));
         };
+
+    });/*back to top scrolling*/
+
+
+
+    /*---reloads window when width changes only ---- */
+    $(window).on('resize orientationchange', function() {
+
+      if ($(this).width() != width) {
+        // window.location.reload();
+        calcFrontPageHt();
+      }
+      /*calcMainPosition();*/
     });
+
+    /*need to store the navigation id in local storage and then recall it. If element_id is null than don't do anything. only execute anchorBodyContent if there is and element_id which would indicate that user selected menu item. then reset element_id*/
+    element_id = localStorage.getItem("element_id");
+    if(element_id == null){
+      console.log("element id is null");
+    } else {
+      console.log(element_id);
+      anchorBodyContent(element_id);
+      element_id = null;
+      localStorage.setItem("element_id", element_id);
+    }
+
+
+    $('.scroll-to').click(function() {
+      $this = $(this);
+      $id = $this.attr("data-anchor");
+      console.log("data-attribute: " + $id);
+      localStorage.setItem("element_id", $id);
+      if(window.location.pathname!="/"){
+        window.location.pathname = "/";
+
+      } else {
+        console.log($id);
+        anchorBodyContent($id);
+
+      }
+        });
+
 }); /* end of document ready*/

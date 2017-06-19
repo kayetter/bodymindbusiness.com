@@ -82,7 +82,7 @@
     background: $brown;
 }
 
-.purple-page main {
+.purple-page main, .purple-section {
     background: $purple;
     padding-bottom: 10%;
 }
@@ -100,18 +100,19 @@
 }
 
 
-.brown-page h1, .purple-page h1 {
+.brown-page h1, .purple-page h1, .purple-section h1 {
     color: white;
     font-family: "angelina";
     padding: 1em 0 0;
+    background-color: transparent;
 }
 
-.brown-page main a, .purple-page main address a {
+.brown-page main a, .purple-page main address a, .purple-section address a {
     color: white;
     text-decoration: none;
 }
 
-.brown-page a:hover, .purple-page a:hover {
+.brown-page a:hover, .purple-page a:hover, .purple-section a:hover {
     color: black;
 }
 

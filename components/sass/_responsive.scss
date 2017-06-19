@@ -1,10 +1,16 @@
         /*===============responsive styles===============*/
-        
+
         #menu {
             display: none;
         }
+
+        @media only screen and (min-width: 1200px){
+          #deb-main-img {
+            max-width: 600px;
+          }
+        }
         /*---media query to center fixed nav bar with screens greater than 1300px*/
-        
+
         @media only screen and (min-width: 1300px) {
             .nav,
             #logo {
@@ -20,7 +26,7 @@
         }
 
         /*================max-width 928 px*/
-        
+
         @media only screen and (max-width: 928px) {
             #hero {
                 background: url(../images/BMB_WebBanner960T.png) no-repeat white;
@@ -36,7 +42,7 @@
                 width: 250px;
             }
             main {
-                padding-top: 145px;
+                padding-top: 80px;
             }
             .enter {
                 padding-top: 40%;
@@ -48,7 +54,7 @@
                 top: 80px;
             }
         }
-        
+
         @media only screen and (max-width: 790px) {
             #hero {
                 background: url(../images/BMB_WebBanner750.png) no-repeat white;
@@ -66,26 +72,32 @@
         }
         /**/
         /*=======max width 678px==============*/
-        
+
         @media only screen and (max-width: 678px) {
+
             body {
                 width: 100%;
                 font-size: 100%;
             }
             main {
+                margin: auto;
                 padding-top: 112px;
                 width: 95%;
+            }
+
+            article, aside{
+              width: 100%;
             }
             .nav {
                 -webkit-transform: translate(-900px, 0);
                 transform: translate(-900px, 0);
                 /*         Optionally, we animate the drawer. */
                 transition: transform .5s ease;
-                z-index: 10;
                 width: 25%;
             }
             .nav ul {
                 display: inline-block;
+                background: $purple;
             }
             #menu {
                 display: inline-block;
@@ -100,7 +112,7 @@
                 top: 0px;
             }
             #menu svg {
-                width: 41px;
+                width: 64px;
                 fill: white;
                 padding-left: 4%;
             }
@@ -121,8 +133,9 @@
             /*-------dynamic menu styling----------------------*/
             .menu-respond {
                 position: fixed;
-                top: 101px;
+                top: 88px;
                 width: 140px;
+                background: $purple;
                 transition: transform 0 .5s ease;
                 -webkit-transform: translate(0px, 0px);
                 transform: translate(0px, 0px);
@@ -165,33 +178,17 @@
                 padding-top: 40%;
                 width: 100%;
             }
-            .enter h2 {
-                display: block;
-                margin-right: 0;
+
+            #deb-main-img, #logo-main-img, .body-content {
+              position: relative;
+              height: auto;
+              width: 100%;
+              display: block;
+              margin: auto;
+              top: 0;
             }
-            .door {
-                display: block;
-                background: url(../images/OpenDoor_25p.png) no-repeat;
-                background-size: contain;
-                background-position: center top;
-                min-width: 50px;
-                width: 50px;
-                height: 80px;
-                padding: 2%;
-                margin: 1em auto;
-                border-radius: 10%;
-                -webkit-box-shadow: 8px 8px 9px 0px rgba(92, 92, 92, 1);
-                -moz-box-shadow: 8px 8px 9px 0px rgba(92, 92, 92, 1);
-                box-shadow: 8px 8px 9px 0px rgba(92, 92, 92, 1);
-            }
-            .door:hover {
-                background: url(../images/OpenDoor_25p.png) no-repeat;
-                background-size: contain;
-                background-position: center center;
-                -webkit-box-shadow: 8px 8px 9px 0px $blue;
-                -moz-box-shadow: 8px 8px 9px 0px $blue;
-                box-shadow: 8px 8px 9px 0px $blue;
-            }
+
+
             #logo, .logo-pic1 #logo, .logo-pic2 #logo, .logo-pic3 #logo {
                 background: url(../images/BMB_logo_no_tag_25p.png) no-repeat;
                 height: 56px;
@@ -211,10 +208,10 @@
                 width: 90%;
             }
             blockquote {
-                width: 75%;
+                width: 90%;
                 font-size: 100%;
             }
-            
+
             .bio {
                 width: 100%;
                 margin: auto;
@@ -228,33 +225,33 @@
                 padding-right: .5em;
                 padding-left: .5em;
             }
-            
+
             .bio p:first-of-type {
                 margin-left: 0;
             }
-            
+
             #deb, #kristin {
                 background: none;
             }
-            
+
             .header {
                 position: relative;
                 display: block;
                 padding: 1em 0 0;
                 margin: auto;
             }
-            
+
             .us-image {
                 z-index: 1000;
                 position: relative;
                 z-index: 1;
             }
-            
+
             #deb .us-img, #kristin .us-img {
                 display: block;
                 margin: auto;
             }
-            
+
             .titles{
                 position: relative;
                 margin: auto;
@@ -263,14 +260,14 @@
                 background: rgba(0,0,0, .3);
                 z-index: -1;
             }
-            
+
             .titles h2, .titles h3 {
                 text-align: center;
                 padding: 0;
                 margin: 0;
                 background: none;
             }
-            
+
             /*-----------testimonial sytles*/
             #carousel {
                 min-height: 190px;
@@ -284,18 +281,18 @@
             .div-back-top {
                 font-size: 100%;
             }
-            
+
             /*-------------form styles-------------*/
             .form-entry {
                 display: block;
             }
-            
+
             /*------------footer styles------------*/
-            
+
             footer {
                 display: block;
                 padding: 2% 0;
             }
-            
+
         }
         /*end of max-width: 678px media query*/

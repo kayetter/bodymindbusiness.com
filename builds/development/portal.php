@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <?php require "head.php"; ?>
 
- <body class="white-page logo-pic1">
-    <?php require "header.php"; ?>
 
-    <main class="portal">
         <article class="inspired-text" id="welcome">
             <h1 class="first-title">Welcome to a new way of being. </h1>
             <h3>We are inviting you to join us on our <a href="#unprogramming"><em>unprogramming</em></a> journey.</h3>
             <h2><em>You choose!</em> Take a deep breath. Pick a door below that most accurately describes why you are here or just continue reading </h2>
             <section class="choose-icon">
-                <a href="#team-anchor" class="cat1">
-                    <h2>Organization or <br> Business</h2>
+                <a class = "scroll-to" data-anchor = 'team' class="cat1">
+                    <h2>Teams or <br> Organizations</h2>
                     <div id="team"></div>
                 </a>
-                <a href="#ie-anchor" class="cat1">
-                    <h2>Entrepreneur or <br> Individual</h2>
+                <a class = "scroll-to" data-anchor = 'individual' class="cat1">
+                    <h2>Individual or <br>
+                    Entrepreneur</h2>
                     <div id="ie-portal"></div>
                 </a>
             </section>
@@ -25,8 +20,7 @@
         </article>
 
         <!--anchor offset for fixed header-->
-        <span class="offset" id="team-anchor"></span>
-        <article class="inspired-text" id="team-portal">
+        <article class="inspired-text" id="team-anchor">
             <h1>Teams and Organizations</h1>
             <p>At BodyMindBusiness, we live for that giddy feeling when we witness high-fives exchanged between co-workers after stumbling on an elegantly inspired idea or solution. If this inspired feeling is what you are seeking in your organization, you are in the right place. You know what we are talking about -- that feeling of flow, harmony, juiciness, inclusion, strength and unstoppable unity.</p>
             <p><a href="#unprogramming"><em>Unprogramming</em></a> means we are inviting you to throw out all the masters, the experts, the authorities, and the “they who say you should…”. and recreate your team’s true brilliance. At BodyMindBusiness, our most inspired work is in helping you remember the real reason you are here, the common motivating force that has brought your team together and to help you realize just how easily your organization can achieve the impossible and beyond.</p>
@@ -77,9 +71,8 @@
         </article>
         <!--end of teams and organizations-->
 
-        <span class="offset" id="ie-anchor"></span>
-        <article class="inspired-text" id="individual">
-            <h1>Entrepreneurs and Individuals</h1>
+        <article class="inspired-text" id="individual-anchor">
+            <h1>Individuals and Entrepreneurs </h1>
             <p>There are so many great things about being independent -- as an entrepreneur owning your own business, an entrepreneur in an organization, or an individual having a unique talent or product or an intensely compelling and individual calling. It’s great to be your own boss; to make your own decisions without having to consult someone else or get other’s buy-in. You can turn on a dime, abandon projects that aren’t working and try things just for the fun of it. Facts and figures are not always required. You can fly by the seat of your pants, rely on your intuition and go on a hunch. As great as having an individual calling can be it can be equally scary and overwhelming, if not paralyzing.</p>
             <p>A common thread appears with individuals who seek us at BodyMindBusiness. People often ask “What is so obvious to you that I cannot see? Will you teach me how to operate at the pace of love so that I too can experience true abundance and authentic happiness?” The people we are seeking who are seeking us know deep down in their heart of hearts that there is something more. Sometimes they know what it is, sometimes they don’t and sometimes what they think it is is not at all what they discover once they realize their truth.  That is how awesomely exciting a connection with your divine truth can be. Typically, this connection requires two-phases. It isn’t a program or a recipe it just happens in two parts. You can’t remodel your house without tearing down a few walls or clearing out your old belongings. </p>
 
@@ -127,8 +120,7 @@
         </article>
         <!--end of entrepreneurs/individuals-->
 
-        <span class="offset" id="unprogramming"></span>
-        <aside class="inspired-text aside">
+        <aside class="inspired-text aside" id="unprogramming-anchor">
             <h1>Unprogramming?</h1>
             <h2>What is <em>“unprogramming”</em>? Don’t you mean “deprogramming”? <br> ---No, not really. </h2>
             <p>All of us have been conditioned to believe certain things about who we are, what success looks like and how we should live our lives. We have agreed to cultural constructs about money, wealth, career, productivity, health, appearance and relationships. We identify with certain aspects of these collective agreements and this identification influences our behavior and the situations and people we surround ourselves with.</p>
@@ -164,10 +156,3 @@
             </div>
         </aside>
         <!--end of claim of worth-->
-    </main>
-
-    <?php
-     require "back-to-top.php";
-     require "footer.php"; ?>
-    </body>
-</html>

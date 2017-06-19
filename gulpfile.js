@@ -78,9 +78,9 @@ if (isDev) {
 //variables fr source files if needed
 
 jsSources = [
+  'components/scripts/jquery.scrollTo.js',
     'components/scripts/functions.js',
-    'components/scripts/calls.js',
-    'components/scripts/tagline.js'
+    'components/scripts/calls.js'
 ];
 
 sassSources = ['components/sass/style.scss'];

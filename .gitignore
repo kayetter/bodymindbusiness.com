@@ -19,4 +19,4 @@ wp-content/plugins/hello.php
 node_modules
 .tmp
 .sass-cache
-builds/**/images/*
+_images_src
