@@ -5,12 +5,13 @@
 #select-me{
   cursor: pointer;
 }
+
 #deb-main-img {
   position: absolute;
   width: 100%;
   max-width: 400px;
   z-index: 2;
-  right: 0;
+  right: -20px;
   top: 0;
 }
 
@@ -27,11 +28,12 @@
   width: 60%;
   top: 157px; /*calculate as logo-img-size*/
   left: 0;
-  z-index: -20;
+  z-index: 3;
 }
 
 #logo-main-img{
   position: absolute;
+  padding-top: 1rem;
   max-width: 1040px;
   top: 0;
   z-index: 1;
@@ -108,7 +110,7 @@ cat1:visited #ie-portal {
     border-radius: 20px 20px 20px 20px;
     -moz-border-radius: 20px 20px 20px 20px;
     -webkit-border-radius: 20px 20px 20px 20px;
-    width: 350px;
+    width: 280px;
     background: #fafafa;
     -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
     -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
@@ -152,14 +154,14 @@ ol li:before {
     display: inline-block;
 }
 
-#individual,
+#individual-anchor,
 #core-value,
 #body-talk,
 #squares {
     counter-reset: h4;
 }
 
-#individual h4,
+#individual-anchor h4,
 #core-value h4,
 #body-talk h4,
 #squares h4 {
@@ -169,7 +171,7 @@ ol li:before {
     font-weight: bold;
 }
 
-#individual h4:before,
+#individual-anchor h4:before,
 #core-value h4:before,
 #body-talk h4:before,
 #squares h4:before {
@@ -184,7 +186,7 @@ ol li:before {
     margin-left: .2em;
 }
 
-#individual h4:before {
+#individual-anchor h4:before {
     Content: "Phase "counter(h4)":";
 }
 
@@ -209,10 +211,17 @@ ol li:before {
     color: $purple;
     font-size: 200%;
     align-items: center;
+    margin-left: 1rem;
+    align-items:baseline;
 }
 
 .signature img {
     display: inline-block;
-    padding: .5em;
-    width: 8%;
+    width: 60px;
+}
+
+.signature p {
+  padding: 0;
+  margin: 0;
+  padding-left: .25rem;
 }

@@ -1,5 +1,4 @@
 
-$ = require('jquery');
 /*----------add submenu class to lis with submenu depending on screen width and updates position of submenu---*/
 
 function addSubmenuLi() {
@@ -16,22 +15,21 @@ function addSubmenuLi() {
 
 /*---------toggles main menus to be used on click hamburger at max-width 678px--------------*/
 
-function toggleMenu(e) {
-    $(".nav").toggleClass("menu-respond");
-    e.stopPropagation;
-}
+
 
 /*---toggles submenu on expanded widths----*/
-function toggleSubmenu() {
+function toggleSubmenu(event) {
     $(this).children("ul").toggleClass("submenu");
     console.log("added submenu")
+    event.stopPropogation();
 }
 
 /*-----------toggles submenu-sm class for max-width: 678px-----*/
 
-function toggleSmSubmenu() {
+function toggleSmSubmenu(event) {
     $(this).children("ul").toggleClass("submenu-sm");
     console.log("you added submenu-sm class");
+    event.stopPropogation();
 }
 
 
@@ -58,7 +56,7 @@ function timeoutMenu() {
 function showSubmenu(e) {
     clearTimeout(timer);
     $(this).children("ul").addClass('submenu');
-    e.stopPropogation;
+    e.stopPropogation();
 }
 
 /*-------------removes submenu and menu-respond classes--------------*/
@@ -105,7 +103,7 @@ function calcFrontPageHt(){
   var logo_ht = $("img#logo-main-img").height();
   /*have to include nav because fixed and therefore removed from dom*/
   var body_content_ht = img_ht - logo_ht -10;
-  var body_content_width = width - img_width + 30;
+  var body_content_width = width - img_width+80;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
   if (width > 679) {
@@ -120,11 +118,12 @@ function calcFrontPageHt(){
 function anchorBodyContent($id){
   var $to = "#" + $id + "-anchor";
   if ($(window).width() > 678) {
-  $(".body-content").scrollTo($to, 800);
-  $(window).scrollTo(0,0);
+  $(".body-content").scrollTo($to, {duration:800});
+  jQuery(window).scrollTo(0);
   } else {
-    $(window).scrollTo($to, 800, {
-        offset: -38
+    jQuery(window).scrollTo($to, {
+        offset: -38,
+        duration:800
       });
   }
 }

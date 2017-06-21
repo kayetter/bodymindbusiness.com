@@ -24,12 +24,18 @@ var gulp = require('gulp'),
     //compress images dependent on pngcruhs
     imagemin = require('gulp-imagemin'),
     pngcrush = require('imagemin-pngcrush'),
+    //resize image not a watch task
+    imageResize = require('gulp-image-resize'),
+    rename = require('gulp-rename'),
     //minifies json files
     jsonminify = require('gulp-jsonminify'),
     // deletes directories
     clean = require('gulp-clean'),
     //concatenates files
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    //grab bower js libraries and css libraries
+    gulpcssnano = require('gulp-cssnano'),
+    bowerFiles = require('main-bower-files');
 
 //for cachebusting and file hasing
 var rev = require('gulp-rev'),
@@ -53,7 +59,8 @@ var env,
     prod,
     isProd,
     isDev,
-    limbo;
+    limbo,
+    cssAssets = [];
 
 
 //sets a variable that if set = production environment otherwise it defaults to development, at cmd prompt use $ NODE_ENV=production gulp
@@ -74,11 +81,39 @@ if (isDev) {
     proxy = 'bmb.prod';
 }
 
+// concatenate any cssthat is needed for bower component plugins
+gulp.task('bower-css', function(){
+  gulp.src(bowerFiles("**/*.css"))
+   .pipe(concat('lib-styles.css'))
+   .pipe(gulpcssnano())
+      .pipe(gulp.dest('builds/development/css/'))
+      .pipe(gulpif(isProd, gulpcssnano({
+        sourcemap: true
+      })))
+      .pipe(gulpif(isProd, gulp.dest(limbo + 'css')))
+});
+
+// concatenate any js that is needed for bower component plugins
+gulp.task('bower-js', ['bower-jquery'], function(){
+  gulp.src(bowerFiles(["**/*.js","!**/dist/jquery.js"]))
+    .pipe(concat('lib-scripts.js'))
+    .pipe(gulp.dest('builds/development/js/'))
+    .pipe(gulpif(isProd, uglify()))
+    .pipe(gulpif(isProd, gulp.dest(limbo + 'scripts')))
+});
+
+gulp.task('bower-jquery', function(){
+  gulp.src(bowerFiles("**/dist/jquery.js"))
+    .pipe(concat('jquery.js'))
+    .pipe(gulp.dest('builds/development/js/'))
+    .pipe(gulpif(isProd, uglify()))
+    .pipe(gulpif(isProd, gulp.dest(limbo + 'scripts')))
+});
 
 //variables fr source files if needed
 
 jsSources = [
-  'components/scripts/jquery.scrollTo.js',
+
     'components/scripts/functions.js',
     'components/scripts/calls.js'
 ];
@@ -137,6 +172,25 @@ gulp.task('jsonminify', function () {
         .pipe(gulpif(isProd, jsonminify()))
         .pipe(gulpif(isProd, gulp.dest(limbo + 'js')));
 });
+
+// make versions of images using gulp-image-resize not in watch list.
+var resizeImageTasks = [];
+
+[400,600,800,1000,2000].forEach(function(size) {
+  var resizeImageTask = 'resize_' + size;
+  gulp.task(resizeImageTask, function() {
+    return gulp.src('builds/development/image_tobe_processed/**/*.{jpg,jpeg,png}')
+      .pipe(imageResize({
+         width:  size,
+         upscale: false,
+         crop: false
+             }))
+      .pipe(rename(function (path) { path.basename += '_'+size; }))
+      .pipe(gulp.dest('builds/development/images/'))
+  });
+  resizeImageTasks.push(resizeImageTask);
+});
+gulp.task('resize-images', resizeImageTasks);
 
 //if isProd compresses image files and rmoves viewbox for svg and puts in limbo if i
 gulp.task('images', function () {
@@ -244,8 +298,9 @@ gulp.task('watch', function () {
     gulp.watch('components/scripts/*.js', ['jsConcat']);
     gulp.watch('components/sass/*.scss', ['compass']);
     gulp.watch('builds/development/**/*.*', ['reload']);
+    gulp.watch('bower.json', ['bower-css', 'bower-js']);
 });
 
 
 
-gulp.task('default', ['jsConcat', 'compass', 'watch', 'browsersync']);
+gulp.task('default', ['bower-css', 'bower-js', 'jsConcat', 'compass', 'watch', 'browsersync']);

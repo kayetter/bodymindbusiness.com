@@ -3,12 +3,12 @@
 .nav {
     max-width: 1300px;
     position: fixed;
-    height: 39px;
+    // height: 39px;
     top: 100px;
     text-align: center;
     width: 100%;
     background: $purple;
-    z-index: 2000;
+    z-index: 1;
 }
 
 
@@ -57,10 +57,10 @@
 }
 
 .nav ul li {
-    width: 140px;
+    padding: 0 .75rem;
     align-items: center;
     line-height: 2;
-    transition: background 1s linear;
+    transition: background 1s linear, color 1s linear;
 }
 
 .nav ul li a,

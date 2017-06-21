@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+$(document).ready(function() {
     var timer
     getTestimonials();
 
@@ -19,16 +19,19 @@ $(document).ready(function () {
 
   /** Open the drawer when the menu icon is clicked.
      */
-    $("#menu").click(toggleMenu);
+    $("#menu").click(function(event){
+      $(".nav").toggleClass("menu-respond");
+      event.stopPropogation();
+    });
 
 
     /*-----------event handlers for submenu------------*/
 
-    $(".submenu-li").click(toggleSubmenu);
+    $(".submenu-li").click(toggleSubmenu(event));
     $(".submenu-li ul").mouseout(function () {
         timeout(3000);
     });
-    $(".smSubmenuLi").click(toggleSmSubmenu);
+    $(".smSubmenuLi").click(toggleSmSubmenu(event));
 
 
     /*  event handlers for submenu-sm   */
@@ -106,7 +109,8 @@ $(document).ready(function () {
       localStorage.setItem("element_id", element_id);
     }
 
-
+    /*if website is in production change window.location.pathname = "/"*/
+    /*if website is on drd_client then pathname = client_portal/client_websites/bmb.com/index.php*/
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
@@ -121,5 +125,7 @@ $(document).ready(function () {
 
       }
         });
+
+        // $('.body-content').scrollbar();
 
 }); /* end of document ready*/

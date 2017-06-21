@@ -166,7 +166,7 @@ footer {
 /*==============main styles=================*/
 body {
   font-size: 120%;
-  font-family: 'myriad-pro';
+  font-family: "PT Sans", sans-serif;
   font-style: normal;
   font-weight: 300;
   position: relative;
@@ -300,12 +300,11 @@ blockquote p {
 .nav {
   max-width: 1300px;
   position: fixed;
-  height: 39px;
   top: 100px;
   text-align: center;
   width: 100%;
   background: #815397;
-  z-index: 2000;
+  z-index: 1;
 }
 
 /*----placing first page nav element at top----*/
@@ -350,10 +349,10 @@ blockquote p {
 }
 
 .nav ul li {
-  width: 140px;
+  padding: 0 .75rem;
   align-items: center;
   line-height: 2;
-  transition: background 1s linear;
+  transition: background 1s linear, color 1s linear;
 }
 
 .nav ul li a,
@@ -661,7 +660,7 @@ a.footer-anchor span {
   width: 100%;
   max-width: 400px;
   z-index: 2;
-  right: 0;
+  right: -20px;
   top: 0;
 }
 
@@ -679,11 +678,12 @@ a.footer-anchor span {
   top: 157px;
   /*calculate as logo-img-size*/
   left: 0;
-  z-index: -20;
+  z-index: 3;
 }
 
 #logo-main-img {
   position: absolute;
+  padding-top: 1rem;
   max-width: 1040px;
   top: 0;
   z-index: 1;
@@ -757,7 +757,7 @@ cat1:visited #ie-portal {
   border-radius: 20px 20px 20px 20px;
   -moz-border-radius: 20px 20px 20px 20px;
   -webkit-border-radius: 20px 20px 20px 20px;
-  width: 350px;
+  width: 280px;
   background: #fafafa;
   -webkit-box-shadow: 10px 10px 12px 0px #5c5c5c;
   -moz-box-shadow: 10px 10px 12px 0px #5c5c5c;
@@ -801,14 +801,14 @@ ol li:before {
   display: inline-block;
 }
 
-#individual,
+#individual-anchor,
 #core-value,
 #body-talk,
 #squares {
   counter-reset: h4;
 }
 
-#individual h4,
+#individual-anchor h4,
 #core-value h4,
 #body-talk h4,
 #squares h4 {
@@ -818,7 +818,7 @@ ol li:before {
   font-weight: bold;
 }
 
-#individual h4:before,
+#individual-anchor h4:before,
 #core-value h4:before,
 #body-talk h4:before,
 #squares h4:before {
@@ -833,7 +833,7 @@ ol li:before {
   margin-left: .2em;
 }
 
-#individual h4:before {
+#individual-anchor h4:before {
   Content: "Phase " counter(h4) ":";
 }
 
@@ -856,12 +856,19 @@ ol li:before {
   color: #815397;
   font-size: 200%;
   align-items: center;
+  margin-left: 1rem;
+  align-items: baseline;
 }
 
 .signature img {
   display: inline-block;
-  padding: .5em;
-  width: 8%;
+  width: 60px;
+}
+
+.signature p {
+  padding: 0;
+  margin: 0;
+  padding-left: .25rem;
 }
 
 /*==============DIY Exercises Styles ============================*/
@@ -1007,7 +1014,7 @@ a:hover i, a:visited i {
 #deb {
   background: url(../images/dame_ranch_1300.jpg) no-repeat;
   background-attachment: scroll;
-  background-position: center -80px;
+  background-position: center 70px;
   background-size: contain;
   margin: auto;
 }
@@ -1374,7 +1381,7 @@ textarea:focus {
 }
 /**/
 /*=======max width 678px==============*/
-@media only screen and (max-width: 678px) {
+@media only screen and (max-width: 700px) {
   body {
     width: 100%;
     font-size: 100%;
@@ -1401,6 +1408,11 @@ textarea:focus {
   .nav ul {
     display: inline-block;
     background: #815397;
+  }
+
+  .nav ul li {
+    padding: 0;
+    width: 100%;
   }
 
   #menu {

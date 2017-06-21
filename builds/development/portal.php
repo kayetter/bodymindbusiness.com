@@ -5,11 +5,11 @@
             <h3>We are inviting you to join us on our <a href="#unprogramming"><em>unprogramming</em></a> journey.</h3>
             <h2><em>You choose!</em> Take a deep breath. Pick a door below that most accurately describes why you are here or just continue reading </h2>
             <section class="choose-icon">
-                <a class = "scroll-to" data-anchor = 'team' class="cat1">
+                <a class = "scroll-to cat1" data-anchor = 'team' >
                     <h2>Teams or <br> Organizations</h2>
                     <div id="team"></div>
                 </a>
-                <a class = "scroll-to" data-anchor = 'individual' class="cat1">
+                <a class = "scroll-to cat1" data-anchor = 'individual'>
                     <h2>Individual or <br>
                     Entrepreneur</h2>
                     <div id="ie-portal"></div>
@@ -132,8 +132,7 @@
         </aside>
         <!--end of unprogramming aside-->
 
-        <span class="offset" id="worth-anchor"></span>
-        <aside class="inspired-text aside">
+        <aside class="inspired-text aside" id="worth-anchor">
             <h1>Claim of Worth <br>(How We Charge)</h1>
             <h2>How much does a whole new way of being cost? <br>--Now that is an interesting question! How much is it worth to YOU?</h2>
             <p>At BodyMindBusiness we believe that when you exchange money you are exchanging energy. When you contract for our services we want this exchange to be of the highest energy available for the highest good of our clients and ourselves and to be an equal exchange of energy. Claiming a new way of being is an investment made by <em>YOU</em>, through <em>YOU</em> and unique to <em>YOU</em> and requires an energetic investment equal and worthy of your expression and creative drive. We will simply match what you are willing to invest.</p>

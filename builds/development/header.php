@@ -11,7 +11,7 @@
 
 
 <!--navigation menu-->
-<nav class="nav">
+<nav class="nav" id="navigation">
     <ul>
         <li><a href="index.php">Home</a></li>
           <li><a class='scroll-to' data-anchor="team">Teams</a></li>

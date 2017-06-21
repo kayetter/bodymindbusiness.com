@@ -73,7 +73,7 @@
         /**/
         /*=======max width 678px==============*/
 
-        @media only screen and (max-width: 678px) {
+        @media only screen and (max-width: 700px) {
 
             body {
                 width: 100%;
@@ -98,6 +98,10 @@
             .nav ul {
                 display: inline-block;
                 background: $purple;
+            }
+            .nav ul li {
+              padding: 0;
+              width: 100%;
             }
             #menu {
                 display: inline-block;
