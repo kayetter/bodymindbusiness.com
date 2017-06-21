@@ -137,7 +137,7 @@
             /*-------dynamic menu styling----------------------*/
             .menu-respond {
                 position: fixed;
-                top: 88px;
+                top: 100px;
                 width: 140px;
                 background: $purple;
                 transition: transform 0 .5s ease;
@@ -147,12 +147,17 @@
             }
             /*----side menu fits below logo and hamburger for portal page---*/
             #first-page .menu-respond {
-                top: 45px;
+                top: 51px;
+            }
+
+            .menu-respond ul li, .submenu-li ul li {
+              width: 140px;
             }
             .menu-respond ul li a,
             .nav .submenu-sm li a {
                 font-size: 1.5em;
                 line-height: 2em;
+                padding: 0;
             }
             .menu-respond > ul > li:hover,
             .menu-respond > ul > li:focus {

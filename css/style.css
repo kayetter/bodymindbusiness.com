@@ -304,7 +304,7 @@ blockquote p {
   text-align: center;
   width: 100%;
   background: #815397;
-  z-index: 1;
+  z-index: 100;
 }
 
 /*----placing first page nav element at top----*/
@@ -349,7 +349,6 @@ blockquote p {
 }
 
 .nav ul li {
-  padding: 0 .75rem;
   align-items: center;
   line-height: 2;
   transition: background 1s linear, color 1s linear;
@@ -358,6 +357,7 @@ blockquote p {
 .nav ul li a,
 .nav .submenu li a {
   color: white;
+  padding: .75rem;
   width: 100%;
   font-size: 110%;
   font-family: 'angelina';
@@ -1454,7 +1454,7 @@ textarea:focus {
   /*-------dynamic menu styling----------------------*/
   .menu-respond {
     position: fixed;
-    top: 88px;
+    top: 100px;
     width: 140px;
     background: #815397;
     transition: transform 0 .5s ease;
@@ -1465,13 +1465,18 @@ textarea:focus {
 
   /*----side menu fits below logo and hamburger for portal page---*/
   #first-page .menu-respond {
-    top: 45px;
+    top: 51px;
+  }
+
+  .menu-respond ul li, .submenu-li ul li {
+    width: 140px;
   }
 
   .menu-respond ul li a,
   .nav .submenu-sm li a {
     font-size: 1.5em;
     line-height: 2em;
+    padding: 0;
   }
 
   .menu-respond > ul > li:hover,

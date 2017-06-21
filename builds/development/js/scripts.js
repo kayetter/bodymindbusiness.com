@@ -19,18 +19,19 @@ function addSubmenuLi() {
 
 
 /*---toggles submenu on expanded widths----*/
-function toggleSubmenu(event) {
+function toggleSubmenu() {
     $(this).children("ul").toggleClass("submenu");
-    console.log("added submenu")
-    event.stopPropogation();
+    console.log("added submenu");
+    e.stopPropogation();
 }
 
 /*-----------toggles submenu-sm class for max-width: 678px-----*/
 
-function toggleSmSubmenu(event) {
+function toggleSmSubmenu() {
     $(this).children("ul").toggleClass("submenu-sm");
     console.log("you added submenu-sm class");
-    event.stopPropogation();
+    e.stopPropogation();
+
 }
 
 
@@ -81,7 +82,7 @@ function updatePosition() {
         "top": top + "px",
         "left": left + "px"
     });
-    console.log("updated position");
+    console.log("updated position for submenu-li");
 }
 
 function updatePositionSm() {
@@ -221,9 +222,9 @@ $(document).ready(function() {
 
   /** Open the drawer when the menu icon is clicked.
      */
-    $("#menu").click(function(event){
+    $("#menu").on("click", function(e){
       $(".nav").toggleClass("menu-respond");
-      event.stopPropogation();
+      e.stopPropogation();
     });
 
 

@@ -19,9 +19,9 @@ $(document).ready(function() {
 
   /** Open the drawer when the menu icon is clicked.
      */
-    $("#menu").click(function(event){
+    $("#menu").on("click", function(e){
       $(".nav").toggleClass("menu-respond");
-      event.stopPropogation();
+      e.stopPropogation();
     });
 
 
