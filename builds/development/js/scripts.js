@@ -229,11 +229,11 @@ $(document).ready(function() {
 
     /*-----------event handlers for submenu------------*/
 
-    $(".submenu-li").click(toggleSubmenu(event));
+    $(".submenu-li").click(toggleSubmenu);
     $(".submenu-li ul").mouseout(function () {
         timeout(3000);
     });
-    $(".smSubmenuLi").click(toggleSmSubmenu(event));
+    $(".smSubmenuLi").click(toggleSmSubmenu);
 
 
     /*  event handlers for submenu-sm   */
