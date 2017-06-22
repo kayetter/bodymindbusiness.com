@@ -138,7 +138,14 @@ summary {
 body {
   margin: auto;
   position: relative;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track {
+  z-index: 9999;
 }
 
 header {
@@ -298,7 +305,6 @@ blockquote p {
 
 /*============================Navigation styles================================*/
 .nav {
-  max-width: 1300px;
   position: fixed;
   top: 100px;
   text-align: center;
@@ -366,6 +372,10 @@ blockquote p {
   cursor: pointer;
 }
 
+.nav .submenu li a {
+  padding-right: 0;
+}
+
 .nav ul li a:hover {
   color: black;
 }
@@ -382,6 +392,7 @@ blockquote p {
 .nav .submenu-li:after {
   content: "\25BC";
   color: white;
+  padding-right: .75rem;
   font-size: 70%;
   padding-left: .25em;
   vertical-align: baseline;
@@ -671,13 +682,18 @@ a.footer-anchor span {
 
 .body-content {
   position: absolute;
-  overflow: auto;
+  overflow-x: hidden;
   height: 443px;
   /*calculate big deb-main-img minus .logo-main-img*/
   width: 60%;
   top: 157px;
   /*calculate as logo-img-size*/
   left: 0;
+  z-index: 3;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slimScrollDiv {
   z-index: 3;
 }
 
@@ -757,7 +773,8 @@ cat1:visited #ie-portal {
   border-radius: 20px 20px 20px 20px;
   -moz-border-radius: 20px 20px 20px 20px;
   -webkit-border-radius: 20px 20px 20px 20px;
-  width: 280px;
+  min-width: 200px;
+  width: 46%;
   background: #fafafa;
   -webkit-box-shadow: 10px 10px 12px 0px #5c5c5c;
   -moz-box-shadow: 10px 10px 12px 0px #5c5c5c;
@@ -1305,23 +1322,17 @@ textarea:focus {
   display: none;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1100px) {
   #deb-main-img {
     max-width: 600px;
+  }
+
+  #logo-main-img {
+    max-width: 100%;
   }
 }
 /*---media query to center fixed nav bar with screens greater than 1300px*/
 @media only screen and (min-width: 1300px) {
-  .nav,
-  #logo {
-    left: 50%;
-    margin-left: -650px;
-  }
-
-  .cat2-list a {
-    width: 450px;
-  }
-
   div.back-to-top {
     left: 12%;
   }
@@ -1339,10 +1350,6 @@ textarea:focus {
 
   #portal-menu.submenu {
     left: 35%;
-  }
-
-  .cat2 a {
-    width: 250px;
   }
 
   main {
@@ -1381,7 +1388,7 @@ textarea:focus {
 }
 /**/
 /*=======max width 678px==============*/
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 740px) {
   body {
     width: 100%;
     font-size: 100%;
@@ -1629,8 +1636,34 @@ textarea:focus {
 
   /*------------footer styles------------*/
   footer {
+    position: relative;
     display: block;
     padding: 2% 0;
   }
 }
 /*end of max-width: 678px media query*/
+@media only screen and (max-width: 480px) {
+  .cat2-list {
+    display: block;
+  }
+
+  .cat2-list a {
+    width: 90%;
+    margin: 2% auto;
+  }
+}
+@media only screen and (min-width: 740px) and (max-width: 850px) {
+  .cat2-list {
+    display: block;
+  }
+
+  .cat2-list a {
+    width: 90%;
+    margin: 2% auto;
+  }
+
+  blockquote {
+    width: 90%;
+    font-size: 100%;
+  }
+}

@@ -1,9 +1,7 @@
 /*============================Navigation styles================================*/
 
 .nav {
-    max-width: 1300px;
     position: fixed;
-    // height: 39px;
     top: 100px;
     text-align: center;
     width: 100%;
@@ -76,6 +74,10 @@
     cursor: pointer;
 }
 
+.nav .submenu li a {
+  padding-right: 0;
+}
+
 .nav ul li a:hover {
     color: black;
 }
@@ -94,6 +96,7 @@
 .nav .submenu-li:after {
     content: "\25BC";
     color: white;
+    padding-right: .75rem;
     font-size: 70%;
     padding-left: .25em;
     vertical-align: baseline;

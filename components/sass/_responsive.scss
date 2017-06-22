@@ -4,25 +4,22 @@
             display: none;
         }
 
-        @media only screen and (min-width: 1200px){
+        @media only screen and (min-width: 1100px){
           #deb-main-img {
             max-width: 600px;
+          }
+          #logo-main-img {
+            max-width: 100%;
           }
         }
         /*---media query to center fixed nav bar with screens greater than 1300px*/
 
         @media only screen and (min-width: 1300px) {
-            .nav,
-            #logo {
-                left: 50%;
-                margin-left: -650px;
-            }
-            .cat2-list a {
-                width: 450px;
-            }
+
             div.back-to-top {
                 left: 12%;
             }
+
         }
 
         /*================max-width 928 px*/
@@ -38,9 +35,7 @@
             #portal-menu.submenu {
                 left: 35%;
             }
-            .cat2 a {
-                width: 250px;
-            }
+
             main {
                 padding-top: 80px;
             }
@@ -73,7 +68,7 @@
         /**/
         /*=======max width 678px==============*/
 
-        @media only screen and (max-width: 700px) {
+        @media only screen and (max-width: 740px) {
 
             body {
                 width: 100%;
@@ -299,9 +294,35 @@
             /*------------footer styles------------*/
 
             footer {
+                position: relative;
                 display: block;
                 padding: 2% 0;
             }
 
         }
         /*end of max-width: 678px media query*/
+
+        @media only screen and (max-width: 480px) {
+          .cat2-list {
+            display: block;
+          }
+          .cat2-list a {
+            width: 90%;
+            margin: 2% auto;
+          }
+        }
+        
+        @media only screen and (min-width: 740px) and (max-width: 850px){
+          .cat2-list {
+            display: block;
+          }
+          .cat2-list a {
+            width: 90%;
+            margin: 2% auto;
+          }
+
+          blockquote {
+              width: 90%;
+              font-size: 100%;
+          }
+        }

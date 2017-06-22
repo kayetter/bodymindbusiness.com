@@ -4,7 +4,13 @@ body {
     // max-width: 1300px;
     margin: auto;
     position: relative;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track {
+  z-index: 9999;
 }
 
 header {

@@ -6,6 +6,7 @@
   cursor: pointer;
 }
 
+
 #deb-main-img {
   position: absolute;
   width: 100%;
@@ -23,11 +24,16 @@
 
 .body-content {
   position: absolute;
-  overflow: auto;
+  overflow-x:hidden;
   height: 443px; /*calculate big deb-main-img minus .logo-main-img*/
   width: 60%;
   top: 157px; /*calculate as logo-img-size*/
   left: 0;
+  z-index: 3;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slimScrollDiv {
   z-index: 3;
 }
 
@@ -110,7 +116,8 @@ cat1:visited #ie-portal {
     border-radius: 20px 20px 20px 20px;
     -moz-border-radius: 20px 20px 20px 20px;
     -webkit-border-radius: 20px 20px 20px 20px;
-    width: 280px;
+    min-width: 200px;
+    width: 46%;
     background: #fafafa;
     -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
     -moz-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);

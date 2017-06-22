@@ -14,7 +14,7 @@ function addSubmenuLi() {
 
 
 
-/*---------toggles main menus to be used on click hamburger at max-width 678px--------------*/
+/*---------toggles main menus to be used on click hamburger at max-width 740px--------------*/
 
 
 
@@ -25,7 +25,7 @@ function toggleSubmenu() {
     e.stopPropogation();
 }
 
-/*-----------toggles submenu-sm class for max-width: 678px-----*/
+/*-----------toggles submenu-sm class for max-width: 740px-----*/
 
 function toggleSmSubmenu() {
     $(this).children("ul").toggleClass("submenu-sm");
@@ -45,7 +45,7 @@ function timeout(s) {
     }, s);
 }
 
-/*----remove .menu-respond class at max-width 678px----*/
+/*----remove .menu-respond class at max-width 740px----*/
 function timeoutMenu() {
     timer = setTimeout(function () {
         $(".nav").removeClass("menu-respond");
@@ -104,29 +104,28 @@ function calcFrontPageHt(){
   var img_width = $("#deb-main-img").width();
   var logo_ht = $("img#logo-main-img").height();
   /*have to include nav because fixed and therefore removed from dom*/
-  var body_content_ht = img_ht - logo_ht -10;
+  var body_content_ht = img_ht - logo_ht;
   var body_content_width = width - img_width+80;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
-  if (width > 679) {
+  if (width > 740) {
+    Scrollbar.init($(".body-content").get(0));
     $("main.front-page").css("height", img_ht+"px");
-    $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+"px", "width": body_content_width+"px"});
-    /*set offset for  navigation purposes*/
-    // $(".offset").css({"height": logo_ht + "px", "margin-top": "-" + logo_ht + "px"});
+    $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
 }
 
 /*using scroll to to navigate to an id appended with "anchor"*/
 function anchorBodyContent($id){
   var $to = "#" + $id + "-anchor";
-  if ($(window).width() > 678) {
-  $(".body-content").scrollTo($to, {duration:800});
-  jQuery(window).scrollTo(0);
+  if ($(window).width() > 740) {
+  // $(".body-content").scrollTo($to, {duration:800});
+  // jQuery(window).scrollTo(0);
   } else {
-    jQuery(window).scrollTo($to, {
-        offset: -38,
-        duration:800
-      });
+    // jQuery(window).scrollTo($to, {
+    //     // offset: -38,
+    //     duration:800
+    //   });
   }
 }
 
@@ -201,7 +200,7 @@ function getTestimonials() {
     }); //get JSON
 } //fxn
 
-
+  var width = $(window).width();
 $(document).ready(function() {
     var timer
     getTestimonials();
@@ -210,7 +209,14 @@ $(document).ready(function() {
 
     calcFrontPageHt();
 
-    var width = $(window).width();
+    // Scrollbar.initAll({
+    //   thumbMinSize: 10
+    // });
+
+    var scrollbar = $(".body-content").scrollbar.getSize();
+    console.log(scrollbar);
+
+
 
     console.log("pathname: " + window.location.pathname);
     localStorage.setItem("width", width);
@@ -257,7 +263,7 @@ $(document).ready(function() {
     $(".back-to-top")
         .click(function () {
         $(window).scrollTop(0);
-        $(".body-content").scrollTop(0);
+        $(".body-content-div").scrollTop(0);
     });
 
 
@@ -291,15 +297,7 @@ $(document).ready(function() {
 
 
 
-    /*---reloads window when width changes only ---- */
-    $(window).on('resize orientationchange', function() {
 
-      if ($(this).width() != width) {
-        // window.location.reload();
-        calcFrontPageHt();
-      }
-      /*calcMainPosition();*/
-    });
 
     /*need to store the navigation id in local storage and then recall it. If element_id is null than don't do anything. only execute anchorBodyContent if there is and element_id which would indicate that user selected menu item. then reset element_id*/
     element_id = localStorage.getItem("element_id");
@@ -313,7 +311,7 @@ $(document).ready(function() {
     }
 
     /*if website is in production change window.location.pathname = "/"*/
-    /*if website is on drd_client then pathname = client_portal/client_websites/bmb.com/index.php*/
+    /*if website is on drd_client then pathname = client_portal/client_websites/bmb.com/index.php */
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
@@ -328,10 +326,17 @@ $(document).ready(function() {
 
       }
         });
-
-        // $('.body-content').scrollbar();
-
 }); /* end of document ready*/
+
+    /*---reloads window when width changes only ---- */
+    $(window).on('resize orientationchange', function() {
+
+      if ($(this).width() != width) {
+        window.location.reload();
+        calcFrontPageHt();
+      }
+      /*calcMainPosition();*/
+    });
 
 },{"jquery-cycle":2,"mustache":4}],2:[function(require,module,exports){
 /*!

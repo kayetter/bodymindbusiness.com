@@ -15,8 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery.scrollbar": "^0.2.11",
-    "jquery.scrollTo": "^2.1.2",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "smooth-scrollbar": "^7.3.1"
   }
 }

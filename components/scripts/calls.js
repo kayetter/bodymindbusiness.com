@@ -1,4 +1,4 @@
-
+  var width = $(window).width();
 $(document).ready(function() {
     var timer
     getTestimonials();
@@ -7,7 +7,14 @@ $(document).ready(function() {
 
     calcFrontPageHt();
 
-    var width = $(window).width();
+    // Scrollbar.initAll({
+    //   thumbMinSize: 10
+    // });
+
+    var scrollbar = $(".body-content").scrollbar.getSize();
+    console.log(scrollbar);
+
+
 
     console.log("pathname: " + window.location.pathname);
     localStorage.setItem("width", width);
@@ -54,7 +61,7 @@ $(document).ready(function() {
     $(".back-to-top")
         .click(function () {
         $(window).scrollTop(0);
-        $(".body-content").scrollTop(0);
+        $(".body-content-div").scrollTop(0);
     });
 
 
@@ -88,15 +95,7 @@ $(document).ready(function() {
 
 
 
-    /*---reloads window when width changes only ---- */
-    $(window).on('resize orientationchange', function() {
 
-      if ($(this).width() != width) {
-        // window.location.reload();
-        calcFrontPageHt();
-      }
-      /*calcMainPosition();*/
-    });
 
     /*need to store the navigation id in local storage and then recall it. If element_id is null than don't do anything. only execute anchorBodyContent if there is and element_id which would indicate that user selected menu item. then reset element_id*/
     element_id = localStorage.getItem("element_id");
@@ -110,7 +109,7 @@ $(document).ready(function() {
     }
 
     /*if website is in production change window.location.pathname = "/"*/
-    /*if website is on drd_client then pathname = client_portal/client_websites/bmb.com/index.php*/
+    /*if website is on drd_client then pathname = client_portal/client_websites/bmb.com/index.php */
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
@@ -125,7 +124,14 @@ $(document).ready(function() {
 
       }
         });
-
-        // $('.body-content').scrollbar();
-
 }); /* end of document ready*/
+
+    /*---reloads window when width changes only ---- */
+    $(window).on('resize orientationchange', function() {
+
+      if ($(this).width() != width) {
+        window.location.reload();
+        calcFrontPageHt();
+      }
+      /*calcMainPosition();*/
+    });

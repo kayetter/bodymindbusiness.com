@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name = "viewport" content = "user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BodyMindBusiness</title>

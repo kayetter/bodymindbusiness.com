@@ -13,7 +13,7 @@ function addSubmenuLi() {
 
 
 
-/*---------toggles main menus to be used on click hamburger at max-width 678px--------------*/
+/*---------toggles main menus to be used on click hamburger at max-width 740px--------------*/
 
 
 
@@ -24,7 +24,7 @@ function toggleSubmenu() {
     e.stopPropogation();
 }
 
-/*-----------toggles submenu-sm class for max-width: 678px-----*/
+/*-----------toggles submenu-sm class for max-width: 740px-----*/
 
 function toggleSmSubmenu() {
     $(this).children("ul").toggleClass("submenu-sm");
@@ -44,7 +44,7 @@ function timeout(s) {
     }, s);
 }
 
-/*----remove .menu-respond class at max-width 678px----*/
+/*----remove .menu-respond class at max-width 740px----*/
 function timeoutMenu() {
     timer = setTimeout(function () {
         $(".nav").removeClass("menu-respond");
@@ -103,29 +103,28 @@ function calcFrontPageHt(){
   var img_width = $("#deb-main-img").width();
   var logo_ht = $("img#logo-main-img").height();
   /*have to include nav because fixed and therefore removed from dom*/
-  var body_content_ht = img_ht - logo_ht -10;
+  var body_content_ht = img_ht - logo_ht;
   var body_content_width = width - img_width+80;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
-  if (width > 679) {
+  if (width > 740) {
+    Scrollbar.init($(".body-content").get(0));
     $("main.front-page").css("height", img_ht+"px");
-    $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+"px", "width": body_content_width+"px"});
-    /*set offset for  navigation purposes*/
-    // $(".offset").css({"height": logo_ht + "px", "margin-top": "-" + logo_ht + "px"});
+    $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
 }
 
 /*using scroll to to navigate to an id appended with "anchor"*/
 function anchorBodyContent($id){
   var $to = "#" + $id + "-anchor";
-  if ($(window).width() > 678) {
-  $(".body-content").scrollTo($to, {duration:800});
-  jQuery(window).scrollTo(0);
+  if ($(window).width() > 740) {
+  // $(".body-content").scrollTo($to, {duration:800});
+  // jQuery(window).scrollTo(0);
   } else {
-    jQuery(window).scrollTo($to, {
-        offset: -38,
-        duration:800
-      });
+    // jQuery(window).scrollTo($to, {
+    //     // offset: -38,
+    //     duration:800
+    //   });
   }
 }
 
