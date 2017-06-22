@@ -16,6 +16,15 @@
   ],
   "dependencies": {
     "jquery": "^3.2.1",
-    "smooth-scrollbar": "^7.3.1"
+    "jquery.scrollTo": "^2.1.2",
+    "jquery-cycle": "^3.0.3",
+    "mustache.js": "mustache#^2.3.0"
+  },
+  "overrides": {
+    "jquery-cycle": {
+      "main": [
+        "jquery.cycle.all.js"
+      ]
+    }
   }
 }

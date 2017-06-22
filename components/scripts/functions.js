@@ -108,7 +108,9 @@ function calcFrontPageHt(){
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
   if (width > 740) {
-    Scrollbar.init($(".body-content").get(0));
+    var scrollbar = Scrollbar.init($(".body-content").get(0));
+    console.log(scrollbar.getSize(scrollbar));
+
     $("main.front-page").css("height", img_ht+"px");
     $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
@@ -150,8 +152,6 @@ function calcMainPosition() {
 
 /*---------get JSON testimonials and filter --------------------*/
 function getTestimonials() {
-    var Mustache = require('mustache');
-    var jqueryCycle = require('jquery-cycle')
 
     $.getJSON("js/testimonials.json", function (data) {
         var template = $("#testimonialtpl").html();

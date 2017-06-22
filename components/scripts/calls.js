@@ -11,11 +11,6 @@ $(document).ready(function() {
     //   thumbMinSize: 10
     // });
 
-    var scrollbar = $(".body-content").scrollbar.getSize();
-    console.log(scrollbar);
-
-
-
     console.log("pathname: " + window.location.pathname);
     localStorage.setItem("width", width);
     stored_width = localStorage.getItem("width");

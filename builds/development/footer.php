@@ -12,11 +12,8 @@
     </div>
 
 </footer>
+<!-------------Link to scripts------------------>
 <script src="js/jquery.js"></script>
 <script src="js/lib-scripts.js"></script>
+<script src="js/smooth-scrollbar.js"></script>
 <script src="js/scripts.js"></script>
-
-
-<!-------------Link to scripts------------------>
-
-<script src="js/scripts.js" async></script>
