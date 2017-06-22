@@ -17,6 +17,7 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 
 node_modules
+bower_components
 .tmp
 .sass-cache
 _images_src
