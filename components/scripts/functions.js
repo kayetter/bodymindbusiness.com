@@ -98,7 +98,6 @@ function updatePositionSm() {
 }
 
 function calcFrontPageHt(){
-  var width = $(window).width();
   var img_ht = $("#deb-main-img").height();
   var img_width = $("#deb-main-img").width();
   var logo_ht = $("img#logo-main-img").height();
@@ -108,25 +107,42 @@ function calcFrontPageHt(){
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
   if (width > 740) {
-    var scrollbar = Scrollbar.init($(".body-content").get(0));
-    console.log(scrollbar.getSize(scrollbar));
-
     $("main.front-page").css("height", img_ht+"px");
     $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
 }
 
+//scrolling functions
+
+function defineScrollbar() {
+  bodycontent = $(".body-content").get(0);
+  if(width >= 740){
+    scrollbar = Scrollbar.init(bodycontent,{
+      thumbMinSize: 50
+    });
+  }
+}
+
 /*using scroll to to navigate to an id appended with "anchor"*/
 function anchorBodyContent($id){
+  var anchor = "";
+  // scrollbar = window.scrollbar
+  var to = $id + "-anchor";
   var $to = "#" + $id + "-anchor";
+  anchor = document.getElementById(to);
+
   if ($(window).width() > 740) {
-  // $(".body-content").scrollTo($to, {duration:800});
-  // jQuery(window).scrollTo(0);
+    $(window).scrollTo(0);
+    scrollbar.scrollIntoView(document.getElementById(to), {
+      offsetTop: 0,
+      alignToTop: true,
+      onlyScrollIfNeeded: true
+  });
   } else {
-    // jQuery(window).scrollTo($to, {
-    //     // offset: -38,
-    //     duration:800
-    //   });
+    $(window).scrollTo($to, {
+        offset: -56,
+        duration:800
+      });
   }
 }
 

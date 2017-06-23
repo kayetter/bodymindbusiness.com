@@ -25,18 +25,15 @@
 .body-content {
   position: absolute;
   background: transparent;
-  overflow-x:hidden;
   height: 443px; /*calculate big deb-main-img minus .logo-main-img*/
   width: 60%;
   top: 157px; /*calculate as logo-img-size*/
   left: 0;
   z-index: 3;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-.slimScrollDiv {
-  z-index: 3;
-}
 
 #logo-main-img{
   position: absolute;

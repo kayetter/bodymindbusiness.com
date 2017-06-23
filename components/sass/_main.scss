@@ -5,11 +5,11 @@ body {
     margin: auto;
     position: relative;
     overflow-x: hidden;
-    overflow-y: auto;
-    width: 100%;
+    // overflow-y: auto;
+    width: 100vw;
     -webkit-overflow-scrolling: touch;
 }
-[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track {
+[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track, .scrollbar-track-y {
   z-index: 9999;
 }
 

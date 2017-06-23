@@ -27,9 +27,9 @@
 
 
 
-<?php
- require "back-to-top.php";
- require "footer.php"; ?>
+  <?php
+   require "back-to-top.php";
+   require "footer.php"; ?>
 
 </body>
 

@@ -1,25 +1,34 @@
   var width = $(window).width();
 $(document).ready(function() {
-    var timer
+    var timer;
+    var scrollbar;
     getTestimonials();
-
     addSubmenuLi();
-
-    calcFrontPageHt();
-
-    // Scrollbar.initAll({
-    //   thumbMinSize: 10
-    // });
-
+    //some useful output to console.log
     console.log("pathname: " + window.location.pathname);
+    console.log("host: " + window.location.host);
     localStorage.setItem("width", width);
     stored_width = localStorage.getItem("width");
     console.log("stored width: " + stored_width)
 
+//first page only function calls
+      if(window.location.pathname=="/" || window.location.pathname=="/index.php"){
+      calcFrontPageHt();
+      defineScrollbar();
+      /*need to store the navigation id in local storage and then recall it. If element_id is null than don't do anything. only execute anchorBodyContent if there is and element_id which would indicate that user selected menu item. then reset element_id*/
+      element_id = localStorage.getItem("element_id");
+      if(element_id == null){
+        console.log("element id is null");
+      } else {
+        console.log(element_id);
+        anchorBodyContent(element_id);
+        element_id = null;
+        localStorage.setItem("element_id", element_id);
+      }
+    } //end of first page function calls
 
 
-
-  /** Open the drawer when the menu icon is clicked.
+    /** Open the drawer when the menu icon is clicked.
      */
     $("#menu").on("click", function(e){
       $(".nav").toggleClass("menu-respond");
@@ -91,27 +100,20 @@ $(document).ready(function() {
 
 
 
-
-    /*need to store the navigation id in local storage and then recall it. If element_id is null than don't do anything. only execute anchorBodyContent if there is and element_id which would indicate that user selected menu item. then reset element_id*/
-    element_id = localStorage.getItem("element_id");
-    if(element_id == null){
-      console.log("element id is null");
-    } else {
-      console.log(element_id);
-      anchorBodyContent(element_id);
-      element_id = null;
-      localStorage.setItem("element_id", element_id);
-    }
-
     /*if website is in production change window.location.pathname = "/"*/
-    /*if website is on drd_client then pathname = client_portal/client_websites/bmb.com/index.php */
+    /*if website is on drd_client then pathname = /client_portal/client_websites/bmb.com/index.php */
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
+      if(window.location.pathname == "dameranchdesigns.com"){
+        pathname = "/client_portal/client_websites/bmb.com/index.php";
+      } else {
+        pathname = "/"
+      }
       console.log("data-attribute: " + $id);
       localStorage.setItem("element_id", $id);
-      if(window.location.pathname!="/"){
-        window.location.pathname = "/";
+      if(window.location.pathname!=pathname){
+        window.location.pathname = pathname;
 
       } else {
         console.log($id);
@@ -126,7 +128,7 @@ $(document).ready(function() {
 
       if ($(this).width() != width) {
         window.location.reload();
-        calcFrontPageHt();
+        // calcFrontPageHt();
       }
       /*calcMainPosition();*/
     });

@@ -36,6 +36,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
         <!-------------Stylesheet Links---------------->
+        <link rel="stylesheet" href="css/lib-styles.css">
         <link rel="stylesheet" href="css/style.css">
 
 </head>

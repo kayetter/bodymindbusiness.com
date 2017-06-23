@@ -139,12 +139,11 @@ body {
   margin: auto;
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
-  width: 100%;
+  width: 100vw;
   -webkit-overflow-scrolling: touch;
 }
 
-[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track {
+[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track, .scrollbar-track-y {
   z-index: 9999;
 }
 
@@ -683,7 +682,6 @@ a.footer-anchor span {
 .body-content {
   position: absolute;
   background: transparent;
-  overflow-x: hidden;
   height: 443px;
   /*calculate big deb-main-img minus .logo-main-img*/
   width: 60%;
@@ -691,11 +689,8 @@ a.footer-anchor span {
   /*calculate as logo-img-size*/
   left: 0;
   z-index: 3;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
-}
-
-.slimScrollDiv {
-  z-index: 3;
 }
 
 #logo-main-img {
@@ -891,7 +886,7 @@ ol li:before {
 
 /*==============DIY Exercises Styles ============================*/
 #diy-exercises {
-  padding-top: 80px;
+  padding-top: 112px;
 }
 
 .narrow-list {
