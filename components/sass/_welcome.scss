@@ -1,18 +1,22 @@
 
 
 /*==================choose portal section cat1=======================*/
-
-#select-me{
-  cursor: pointer;
+ .body-content .inspired-text, .body-content article {
+  width: 100%;
+  padding-left: 10px;
 }
 
+.body-content aside, .body-content .inspired-text.aside {
+  width: 95%;
+  padding-left: 0;
+}
 
 #deb-main-img {
   position: absolute;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   z-index: 2;
-  right: -20px;
+  right: -30px;
   top: 0;
 }
 
@@ -38,7 +42,6 @@
 #logo-main-img{
   position: absolute;
   padding-top: 1rem;
-  max-width: 1040px;
   top: 0;
   z-index: 1;
   width: 100%;

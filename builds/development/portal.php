@@ -2,7 +2,7 @@
 
         <article class="inspired-text" id="welcome">
             <h1 class="first-title">Welcome to a new way of being. </h1>
-            <h3>We are inviting you to join us on an <a href="#unprogramming"><em>unprogramming</em></a> journey.</h3>
+            <h3>We are inviting you to join us on an <a href="#unprogramming"><em>unprogramming</em></a> journey to experience yourself and your team in a new way..</h3>
 
             <section class="choose-icon">
                 <a class = "scroll-to cat1" data-anchor = 'team' >

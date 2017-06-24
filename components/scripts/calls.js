@@ -1,5 +1,9 @@
-  var width = $(window).width();
+//using 'body'.width because jquery calculated window width was more than the media screen calculated width
+  var ifwidth = $('html').innerWidth();
+  var width = $(window).innerWidth();
 $(document).ready(function() {
+  console.log("window width: "+ width);
+  console.log("html width: "+ifwidth);
     var timer;
     var scrollbar;
     getTestimonials();
@@ -9,10 +13,18 @@ $(document).ready(function() {
     console.log("host: " + window.location.host);
     localStorage.setItem("width", width);
     stored_width = localStorage.getItem("width");
-    console.log("stored width: " + stored_width)
+    console.log("stored width: " + stored_width);
+
+    if(window.location.host == "dameranchdesigns.com"){
+      pathname = "/client_portal/client_websites/bmb.com/index.php";
+    } else {
+      pathname = "/"
+    }
+
+    console.log("pathname var: " +pathname);
 
 //first page only function calls
-      if(window.location.pathname=="/" || window.location.pathname=="/index.php"){
+      if(window.location.pathname =="/" || window.location.pathname == "/index.php" || window.location.pathname =="/client_portal/client_websites/bmb.com/index.php"){
       calcFrontPageHt();
       defineScrollbar();
       /*need to store the navigation id in local storage and then recall it. If element_id is null than don't do anything. only execute anchorBodyContent if there is and element_id which would indicate that user selected menu item. then reset element_id*/
@@ -105,11 +117,7 @@ $(document).ready(function() {
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
-      if(window.location.pathname == "dameranchdesigns.com"){
-        pathname = "/client_portal/client_websites/bmb.com/index.php";
-      } else {
-        pathname = "/"
-      }
+
       console.log("data-attribute: " + $id);
       localStorage.setItem("element_id", $id);
       if(window.location.pathname!=pathname){
@@ -121,6 +129,10 @@ $(document).ready(function() {
 
       }
         });
+      //
+      // if(window.location.pathname == '/about-us.php'){
+      //   setAboutUsPosition();
+      // }
 }); /* end of document ready*/
 
     /*---reloads window when width changes only ---- */
@@ -128,7 +140,7 @@ $(document).ready(function() {
 
       if ($(this).width() != width) {
         window.location.reload();
-        // calcFrontPageHt();
+        calcFrontPageHt();
       }
       /*calcMainPosition();*/
     });

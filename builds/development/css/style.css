@@ -136,15 +136,19 @@ summary {
 
 /*==================main layout styles=================================*/
 body {
-  margin: auto;
   position: relative;
   overflow-x: hidden;
   width: 100vw;
+  max-width: 100%;
   -webkit-overflow-scrolling: touch;
 }
 
-[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track, .scrollbar-track-y {
-  z-index: 9999;
+[data-scrollbar] .scrollbar-thumb, [scrollbar] .scrollbar-thumb, scrollbar .scrollbar-thumb {
+  background: #815397;
+}
+
+[data-scrollbar] .scrollbar-track:hover, [scrollbar] .scrollbar-track:hover, scrollbar .scrollbar-track:hover {
+  background: #D8C1E3;
 }
 
 header {
@@ -324,15 +328,14 @@ blockquote p {
 
 #logo {
   width: 100%;
-  max-width: 1300px;
-  height: 100px;
   position: fixed;
+  height: 100px;
   left: 0;
   background: url("../images/BMB_Web_MiniBanner1.png") no-repeat white;
   background-position: center top;
   background-size: contain;
   margin: 0;
-  z-index: 2000;
+  z-index: 200;
 }
 
 .logo-pic2 #logo {
@@ -661,16 +664,22 @@ a.footer-anchor span {
 }
 
 /*==================choose portal section cat1=======================*/
-#select-me {
-  cursor: pointer;
+.body-content .inspired-text, .body-content article {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.body-content aside, .body-content .inspired-text.aside {
+  width: 95%;
+  padding-left: 0;
 }
 
 #deb-main-img {
   position: absolute;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   z-index: 2;
-  right: -20px;
+  right: -30px;
   top: 0;
 }
 
@@ -696,7 +705,6 @@ a.footer-anchor span {
 #logo-main-img {
   position: absolute;
   padding-top: 1rem;
-  max-width: 1040px;
   top: 0;
   z-index: 1;
   width: 100%;
@@ -986,7 +994,7 @@ a:hover i, a:visited i {
 
 .header {
   display: flex;
-  padding-top: 200px;
+  padding-top: 300px;
 }
 
 .titles {
@@ -1021,13 +1029,13 @@ a:hover i, a:visited i {
   height: 200px;
   border-radius: 50%;
   border: solid 7px white;
-  margin: 0;
+  margin-left: -30px;
 }
 
 #deb {
   background: url(../images/dame_ranch_1300.jpg) no-repeat;
   background-attachment: scroll;
-  background-position: center 70px;
+  background-position: center top;
   background-size: contain;
   margin: auto;
 }
@@ -1059,7 +1067,7 @@ a:hover i, a:visited i {
   background: #0285BF;
   border: 2px solid white;
   padding: 1em 0;
-  margin-top: -100px;
+  margin-top: -75px;
   margin-left: 5%;
   z-index: -1;
   -webkit-box-shadow: 10px 10px 12px 0px #5c5c5c;
@@ -1068,7 +1076,7 @@ a:hover i, a:visited i {
 }
 
 .bio p:first-of-type {
-  margin-left: 19%;
+  margin-left: 14%;
 }
 
 .bio p {
@@ -1322,10 +1330,6 @@ textarea:focus {
   #deb-main-img {
     max-width: 600px;
   }
-
-  #logo-main-img {
-    max-width: 100%;
-  }
 }
 /*---media query to center fixed nav bar with screens greater than 1300px*/
 @media only screen and (min-width: 1300px) {
@@ -1363,6 +1367,10 @@ textarea:focus {
   .nav {
     top: 80px;
   }
+
+  .header {
+    padding-top: 25%;
+  }
 }
 @media only screen and (max-width: 790px) {
   #hero {
@@ -1384,7 +1392,7 @@ textarea:focus {
 }
 /**/
 /*=======max width 678px==============*/
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 744px) {
   body {
     width: 100%;
     font-size: 100%;
@@ -1648,9 +1656,13 @@ textarea:focus {
     margin: 2% auto;
   }
 }
-@media only screen and (min-width: 740px) and (max-width: 850px) {
-  .cat2-list {
-    display: block;
+@media only screen and (min-width: 745px) and (max-width: 1025px) {
+  .choose-icon {
+    width: 100%;
+  }
+
+  .cat1 {
+    margin: 0 2% 4%;
   }
 
   .cat2-list a {
@@ -1658,8 +1670,17 @@ textarea:focus {
     margin: 2% auto;
   }
 
+  #deb-main-img {
+    max-width: 400px;
+  }
+
   blockquote {
     width: 90%;
     font-size: 100%;
+  }
+
+  .aside ol {
+    padding-left: 2em;
+    padding-right: 1em;
   }
 }

@@ -18,7 +18,7 @@
 
 .header {
     display: flex;
-    padding-top: 200px;
+    padding-top: 300px;
 }
 
 .titles {
@@ -27,6 +27,7 @@
     padding-top: 2%;
     z-index: -2;
 }
+
 
 .titles h2,
 .titles h3 {
@@ -53,13 +54,13 @@
     height: 200px;
     border-radius: 50%;
     border: solid 7px white;
-    margin: 0;
+    margin-left: -30px;
 }
 
 #deb {
     background: url(../images/dame_ranch_1300.jpg) no-repeat;
     background-attachment: scroll;
-    background-position: center 70px;
+    background-position: center top;
     background-size: contain;
     margin: auto;
 }
@@ -92,7 +93,7 @@
     ;
     border: 2px solid white;
     padding: 1em 0;
-    margin-top: -100px;
+    margin-top: -75px;
     margin-left: 5%;
     z-index: -1;
     -webkit-box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
@@ -100,8 +101,9 @@
     box-shadow: 10px 10px 12px 0px rgba(92, 92, 92, 1);
 }
 
+
 .bio p:first-of-type {
-    margin-left: 19%;
+    margin-left: 14%;
 }
 
 .bio p {

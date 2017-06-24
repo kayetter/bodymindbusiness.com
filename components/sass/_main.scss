@@ -2,16 +2,23 @@
 
 body {
     // max-width: 1300px;
-    margin: auto;
+    // margin: auto;
     position: relative;
     overflow-x: hidden;
     // overflow-y: auto;
     width: 100vw;
+    max-width: 100%;
     -webkit-overflow-scrolling: touch;
 }
-[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track, .scrollbar-track-y {
-  z-index: 9999;
+
+[data-scrollbar] .scrollbar-thumb, [scrollbar] .scrollbar-thumb, scrollbar .scrollbar-thumb{
+  background: $purple;
 }
+[data-scrollbar] .scrollbar-track:hover, [scrollbar] .scrollbar-track:hover, scrollbar .scrollbar-track:hover {
+  background: $ltpurple;
+}
+
+
 
 header {
     position: fixed;

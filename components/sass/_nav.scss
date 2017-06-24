@@ -25,15 +25,15 @@
 
 #logo {
     width: 100%;
-    max-width: 1300px;
-    height: 100px;
+    // height: 100px;
     position: fixed;
+    height: 100px;
     left: 0;
     background: url("../images/BMB_Web_MiniBanner1.png") no-repeat white;
     background-position: center top;
     background-size: contain;
     margin: 0;
-    z-index: 2000;
+    z-index: 200;
 }
 
 .logo-pic2 #logo {

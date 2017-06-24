@@ -13,7 +13,7 @@ function addSubmenuLi() {
 
 
 
-/*---------toggles main menus to be used on click hamburger at max-width 740px--------------*/
+/*---------toggles main menus to be used on click hamburger at max-width 744px--------------*/
 
 
 
@@ -24,7 +24,7 @@ function toggleSubmenu() {
     e.stopPropogation();
 }
 
-/*-----------toggles submenu-sm class for max-width: 740px-----*/
+/*-----------toggles submenu-sm class for max-width: 744px-----*/
 
 function toggleSmSubmenu() {
     $(this).children("ul").toggleClass("submenu-sm");
@@ -44,7 +44,7 @@ function timeout(s) {
     }, s);
 }
 
-/*----remove .menu-respond class at max-width 740px----*/
+/*----remove .menu-respond class at max-width 744px----*/
 function timeoutMenu() {
     timer = setTimeout(function () {
         $(".nav").removeClass("menu-respond");
@@ -94,29 +94,34 @@ function updatePositionSm() {
         "top": top + "px",
         "left": left + "px"
     });
-    console.log("YOU ARE FREE YOU ARE FREE YOU ARE FREE update the submenu position");
 }
 
 function calcFrontPageHt(){
-  var img_ht = $("#deb-main-img").height();
+  if($(window).height()>$("#deb-main-img").height()){
+    img_ht = $(window).height();
+  } else {
+    var img_ht = $("#deb-main-img").height();
+  }
   var img_width = $("#deb-main-img").width();
   var logo_ht = $("img#logo-main-img").height();
   /*have to include nav because fixed and therefore removed from dom*/
   var body_content_ht = img_ht - logo_ht;
-  var body_content_width = width - img_width+80;
+  var body_content_width = width - img_width + 50;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
-  if (width > 740) {
+  if (ifwidth >= 744) {
     $("main.front-page").css("height", img_ht+"px");
     $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
 }
 
+
+
 //scrolling functions
 
 function defineScrollbar() {
   bodycontent = $(".body-content").get(0);
-  if(width >= 740){
+  if(ifwidth >= 744){
     scrollbar = Scrollbar.init(bodycontent,{
       thumbMinSize: 50
     });
@@ -131,7 +136,7 @@ function anchorBodyContent($id){
   var $to = "#" + $id + "-anchor";
   anchor = document.getElementById(to);
 
-  if ($(window).width() > 740) {
+  if (ifwidth >= 744) {
     $(window).scrollTo(0);
     scrollbar.scrollIntoView(document.getElementById(to), {
       offsetTop: 0,

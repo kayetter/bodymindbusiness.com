@@ -8,9 +8,6 @@
           #deb-main-img {
             max-width: 600px;
           }
-          #logo-main-img {
-            max-width: 100%;
-          }
         }
         /*---media query to center fixed nav bar with screens greater than 1300px*/
 
@@ -48,6 +45,9 @@
             .nav {
                 top: 80px;
             }
+            .header {
+              padding-top: 25%;
+            }
         }
 
         @media only screen and (max-width: 790px) {
@@ -68,7 +68,7 @@
         /**/
         /*=======max width 678px==============*/
 
-        @media only screen and (max-width: 740px) {
+        @media only screen and (max-width: 744px) {
 
             body {
                 width: 100%;
@@ -311,18 +311,36 @@
             margin: 2% auto;
           }
         }
-        
-        @media only screen and (min-width: 740px) and (max-width: 850px){
-          .cat2-list {
-            display: block;
+
+        @media only screen and (min-width: 745px) and (max-width: 1025px){
+          .choose-icon {
+            width: 100%;
           }
+
+          .cat1 {
+            margin: 0 2% 4%;
+          }
+
+          .cat2-list {
+            // display: block;
+          }
+
           .cat2-list a {
             width: 90%;
             margin: 2% auto;
           }
 
+          #deb-main-img {
+            max-width: 400px;
+          }
+
           blockquote {
               width: 90%;
               font-size: 100%;
+          }
+
+          .aside ol {
+            padding-left: 2em;
+            padding-right: 1em;
           }
         }

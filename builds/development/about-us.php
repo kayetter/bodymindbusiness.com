@@ -15,7 +15,7 @@
                       <h3>Owner and Co-creator</h3>
                   </div>
               </div>
-              <blockquote class="bio">
+              <blockquote class="bio" id="deb-bio">
                   <p><em>I LOVE LOVE LOVE YOU!</em> I don't need to know you or even see you because I don't see the person you see in the mirror.
                   </p>
                   <p>I may see a badass goddess or wholehearted warrior that if given the chance to see what I see, you'd love yourself too. You'd be unstoppable...unstoppable at being <em>YOU</em>. That may be someone you have not yet met, let alone fallen in love with. That's okay. I get it. I haven’t always lived free. I know self-hate, self-sabotaging behaviors and what it feels like to live someone else's dream. These stories no longer define me, but they do offer you an entry point into my cellular memory. You will understand why my compassion and empathy for all beings and unflagging belief in you is so strong. You will feel this place of safety and zero judgment that drives my loving approach -- sometimes gentle and other times not so much -- that may inspire you to shed all that no longer serves you.</p>
@@ -31,7 +31,7 @@
                   <p>I look forward to connecting with you,</p>
 
 
-                  <p><em>Deb</em></p>
+                  <p><em><a href="mailTo:deb@bodymindbusiness.com">Deb</a></em></p>
               </blockquote>
           </article>
           <span class="offset" id="kristin-anchor"></span>
@@ -52,7 +52,7 @@
                   <p>I am a self-proclaimed individualist who thrives on freedom and autonomy and am ready and willing at any time to step into the next adventure. And, apparently, this is it. I love how Deb serves and wanted to be a part of something that builds people up so they can recognize their true potential, power and worthiness to claim abundance and infinite tummy-tickle inspiration. I am owner of The Dame Ranch, LLC (not to be confused with the Dame Ranch) and <span> <a href="https://dameranchdesigns.com" title="dameranchdesigns.com" target="_blank">dameranchdesigns.com</a></span> both of which I hope you will encounter in these pages. </p>
                   <p>Looking forward to meeting you in the future and until then please remember: <em>You are free, You are free, You are free . . .</em></p>
 
-                  <p><em>Kristin</em></p>
+                  <p><em><a href="mailTo:kristin@bodymindbusiness.com">Kristin</a></em></p>
 
               </section>
           </article>
@@ -110,6 +110,8 @@
             <?php
         require "back-to-top.php";
         require "footer.php"; ?>
+
+
     </body>
 
 </html>
