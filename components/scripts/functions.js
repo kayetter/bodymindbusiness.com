@@ -109,7 +109,7 @@ function calcFrontPageHt(){
   var body_content_width = width - img_width + 50;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
-  if (ifwidth >= 744) {
+  if (ifwidth >= 745) {
     $("main.front-page").css("height", img_ht+"px");
     $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }

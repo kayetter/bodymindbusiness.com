@@ -99,15 +99,14 @@ gulp.task('bower-js', ['bower-jquery'], function(){
     .pipe(concat('lib-scripts.js'))
     .pipe(gulp.dest('builds/development/js/'))
     .pipe(gulpif(isProd, uglify()))
-    .pipe(gulpif(isProd, gulp.dest(limbo + 'scripts')))
+    .pipe(gulpif(isProd, gulp.dest(limbo + 'js')))
 });
 
 gulp.task('bower-jquery', function(){
   gulp.src(bowerFiles("**/dist/jquery.js"))
-    .pipe(concat('jquery.js'))
     .pipe(gulp.dest('builds/development/js/'))
     .pipe(gulpif(isProd, uglify()))
-    .pipe(gulpif(isProd, gulp.dest(limbo + 'scripts')))
+    .pipe(gulpif(isProd, gulp.dest(limbo + 'js')))
 });
 
 //variables fr source files if needed
@@ -257,7 +256,7 @@ gulp.task('cleanProd', function(){
 });
 
 //runs all dependencies to create limbo files structure use node_env=production at prompt do this second
-gulp.task('kickit', ['jsConcat', 'compass', 'movePHP', 'moveWebFonts', 'jsonminify', 'images', 'moveDocs']);
+gulp.task('kickit', ['jsConcat', 'bower-js', 'bower-css', 'compass', 'movePHP', 'moveWebFonts', 'jsonminify', 'images', 'moveDocs']);
 
 //creates signature on all files indicated and moves them to prod folder and creates manifest -- rev-manifest.json. do this third
 gulp.task('rev', function () {

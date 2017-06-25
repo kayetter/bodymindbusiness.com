@@ -110,7 +110,7 @@ function calcFrontPageHt(){
   var body_content_width = width - img_width + 50;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
-  if (ifwidth >= 744) {
+  if (ifwidth >= 745) {
     $("main.front-page").css("height", img_ht+"px");
     $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
@@ -340,11 +340,12 @@ $(document).ready(function() {
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
-
       console.log("data-attribute: " + $id);
-      localStorage.setItem("element_id", $id);
       if(window.location.pathname!=pathname){
+        localStorage.setItem("element_id", $id);
         window.location.pathname = pathname;
+        $id = localStorage.getItem("element_id", $id);
+        anchorBodyContent($id);
 
       } else {
         console.log($id);

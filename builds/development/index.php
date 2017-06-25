@@ -25,8 +25,6 @@
     </section>
   </main>
 
-
-
   <?php
    require "back-to-top.php";
    require "footer.php"; ?>

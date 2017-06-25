@@ -117,11 +117,12 @@ $(document).ready(function() {
     $('.scroll-to').click(function() {
       $this = $(this);
       $id = $this.attr("data-anchor");
-
       console.log("data-attribute: " + $id);
-      localStorage.setItem("element_id", $id);
       if(window.location.pathname!=pathname){
+        localStorage.setItem("element_id", $id);
         window.location.pathname = pathname;
+        $id = localStorage.getItem("element_id", $id);
+        anchorBodyContent($id);
 
       } else {
         console.log($id);

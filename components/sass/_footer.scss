@@ -1,17 +1,15 @@
 /*=================footer styles=====================================*/
 
 footer {
-    // position: absolute;
-    // bottom: 0;
     font-size: 70%;
     display: flex;
     flex-flow: nowrap;
     justify-content: space-between;
-    bottom: 0;
     background: $purple;
     color: white;
     z-index: 3;
     align-items: center;
+    margin: 0;
 }
 
 footer div,
