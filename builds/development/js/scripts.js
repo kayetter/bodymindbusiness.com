@@ -110,7 +110,7 @@ function calcFrontPageHt(){
   var body_content_width = width - img_width + 50;
   console.log("bodyContent: " + body_content_ht);
   console.log("logoHeight:" + logo_ht);
-  if (ifwidth >= 745) {
+  if (ifwidth >= 728) {
     $("main.front-page").css("height", img_ht+"px");
     $(".body-content").css({"height": body_content_ht + "px", "top": logo_ht+10+"px", "width": body_content_width+"px"});
   }
@@ -122,7 +122,7 @@ function calcFrontPageHt(){
 
 function defineScrollbar() {
   bodycontent = $(".body-content").get(0);
-  if(ifwidth >= 744){
+  if(ifwidth >= 728){
     scrollbar = Scrollbar.init(bodycontent,{
       thumbMinSize: 50
     });
@@ -222,7 +222,7 @@ function getTestimonials() {
 } //fxn
 
 //using 'body'.width because jquery calculated window width was more than the media screen calculated width
-  var ifwidth = $('html').innerWidth();
+  var ifwidth = $('body').width();
   var width = $(window).innerWidth();
 $(document).ready(function() {
   console.log("window width: "+ width);
@@ -362,7 +362,7 @@ $(document).ready(function() {
     /*---reloads window when width changes only ---- */
     $(window).on('resize orientationchange', function() {
 
-      if ($(this).width() != width) {
+      if ($(this).innerWidth() != width) {
         window.location.reload();
         calcFrontPageHt();
       }

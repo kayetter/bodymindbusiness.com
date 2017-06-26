@@ -137,10 +137,9 @@ summary {
 /*==================main layout styles=================================*/
 body {
   position: relative;
-  margin: auto;
+  margin: 0;
   overflow-x: hidden;
-  width: 99%;
-  max-width: 100%;
+  width: 100%;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -1517,12 +1516,6 @@ textarea:focus {
     background: url(../images/BMB_WebBannerHead_750.png) no-repeat white;
     background-position: center top 45px;
     background-size: contain;
-  }
-
-  .enter {
-    display: block;
-    padding-top: 40%;
-    width: 100%;
   }
 
   #deb-main-img, #logo-main-img, .body-content {

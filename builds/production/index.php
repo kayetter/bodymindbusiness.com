@@ -16,7 +16,7 @@
     <source media="(min-width: 800px)" srcset="images/Deb_jacketHighRes_1000-3f250d9b36.png">
     <source media="(min-width: 600px)" srcset="images/Deb_jacketHighRes_800-f1eaaf5a84.png">
     <source media="(min-width: 400px)" srcset="images/Deb_jacketHighRes_600-8c275385c7.png">
-    <img id="deb-main-img" src="images/Deb_jacketHighRes_400" srcset = "images/Deb_jacketHighRes_2000 2x" alt="debra jones full image">
+    <img id="deb-main-img" src="images/Deb_jacketHighRes_400-cf51887449.png" srcset = "images/Deb_jacketHighRes_2000-cb3c6d6a9f.png 2x" alt="debra jones full image">
   </picture>
     <section class="body-content" scrollbar>
 
@@ -24,8 +24,6 @@
 
     </section>
   </main>
-
-
 
   <?php
    require "back-to-top.php";

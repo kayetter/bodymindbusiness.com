@@ -1,5 +1,5 @@
 //using 'body'.width because jquery calculated window width was more than the media screen calculated width
-  var ifwidth = $('html').innerWidth();
+  var ifwidth = $('body').width();
   var width = $(window).innerWidth();
 $(document).ready(function() {
   console.log("window width: "+ width);
@@ -139,7 +139,7 @@ $(document).ready(function() {
     /*---reloads window when width changes only ---- */
     $(window).on('resize orientationchange', function() {
 
-      if ($(this).width() != width) {
+      if ($(this).innerWidth() != width) {
         window.location.reload();
         calcFrontPageHt();
       }

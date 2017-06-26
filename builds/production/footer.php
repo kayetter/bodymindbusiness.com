@@ -15,4 +15,4 @@
 <!-------------Link to scripts------------------>
 <script src="js/jquery-c2b5150ace.js"></script>
 <script src="js/lib-scripts-e06e2a6bb8.js"></script>
-<script src="js/scripts-37c0d40602.js"></script>
+<script src="js/scripts-87628693a1.js"></script>

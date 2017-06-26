@@ -137,9 +137,9 @@ summary {
 /*==================main layout styles=================================*/
 body {
   position: relative;
+  margin: 0;
   overflow-x: hidden;
-  width: 100vw;
-  max-width: 100%;
+  width: 100%;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -633,11 +633,11 @@ footer {
   display: flex;
   flex-flow: nowrap;
   justify-content: space-between;
-  bottom: 0;
   background: #815397;
   color: white;
   z-index: 3;
   align-items: center;
+  margin: 0;
 }
 
 footer div,
@@ -679,7 +679,7 @@ a.footer-anchor span {
   width: 100%;
   max-width: 500px;
   z-index: 2;
-  right: -30px;
+  right: 0px;
   top: 0;
 }
 
@@ -1518,12 +1518,6 @@ textarea:focus {
     background-size: contain;
   }
 
-  .enter {
-    display: block;
-    padding-top: 40%;
-    width: 100%;
-  }
-
   #deb-main-img, #logo-main-img, .body-content {
     position: relative;
     height: auto;
@@ -1656,7 +1650,7 @@ textarea:focus {
     margin: 2% auto;
   }
 }
-@media only screen and (min-width: 745px) and (max-width: 1025px) {
+@media only screen and (min-width: 745px) and (max-width: 1023px) {
   .choose-icon {
     width: 100%;
   }
