@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:DEBRA JONES
+N:JONES;DEBRA;;;
+EMAIL;TYPE=INTERNET:debrakayjones@icloud.com
+EMAIL;TYPE=INTERNET:debra.k.jones@monsanto.com
+EMAIL;TYPE=INTERNET;TYPE=WORK:deb@bodymindbusiness.com
+TEL;TYPE=WORK:(208) 749-0900
+item1.TEL:(406) 581-9182
+item1.X-ABLabel:EX-CarPhone
+ADR;TYPE=HOME:;;2318 Garey Ln;Filer;ID;83328;United States of America
+ORG:BodyMindBusiness.com
+TITLE:Owner
+URL;TYPE=WORK:https\://bodymindbusiness.com
+END:VCARD

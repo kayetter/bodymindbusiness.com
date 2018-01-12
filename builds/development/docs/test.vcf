@@ -1,0 +1,32 @@
+BEGIN:VCARD
+VERSION:2.1
+N;LANGUAGE=en-us:test;this;is a
+FN:this is a test
+ORG:does this download
+X-MS-OL-DEFAULT-POSTAL-ADDRESS:0
+EMAIL;PREF;INTERNET:test@email.com
+X-MS-CARDPICTURE;TYPE=JPEG;ENCODING=BASE64:
+ /9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAcFBQYFBAcGBQYIBwcIChELCgkJChUPEAwRGBUa
+ GRgVGBcbHichGx0lHRcYIi4iJSgpKywrGiAvMy8qMicqKyr/2wBDAQcICAoJChQLCxQqHBgc
+ KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKir/wAAR
+ CACVACcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAA
+ AgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkK
+ FhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWG
+ h4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl
+ 5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREA
+ AgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYk
+ NOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+ hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk
+ 5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD393CkA9TQD1JPFQudzn9KRj27CgB7z/3O
+ fc0sfIyevrUAGTVgfKnPpmgCGT55celFJHy5aigBw4yfSkpT92koAIxlqllO2M+/FNhHNJMe
+ QKAGp8sZPeiiThFWigBW60lHagdaAJ4hhc1A3zTfjVg/JH9BVeLlifagBJTlsUU1jlyfeigB
+ /anRj5hmm9qliX+VABM2EA9ajT5YyfWlnOXA9BQQdgUcmgCCipRGFGXNFAC9TipUOF9SeaQe
+ X1ApWJVSVGKAG+WN25z17CmvJt4UY96RCS5JPQU1+XNADV+duTRTfpRQBZjHzD86WY8AUsY4
+ J/CmOV3c8n0oAIxhc+9R7QPvH8BUjHEfpxUVAAXx90YoplFAF7olVh8zfU1YlOIz71DH97Po
+ KACQ8Ae+ajp0n3segxTaAGUUUUAWpjyBTYx8vPc0khyxp3RPw/nQBCTkk0UUUAMooooAs7lY
+ 4I60rYI+p9aYn3snsKH6j2FACeX7mm7D2IP40mcHil3sO+frQA0qR2opfM9vyNFAEqfcb8Ka
+ /wB8/WiigBh60lFFADaKKKAP/9k=
+
+X-MS-OL-DESIGN;CHARSET=utf-8:<card xmlns="http://schemas.microsoft.com/office/outlook/12/electronicbusinesscards" ver="1.0" layout="left" bgcolor="ffffff"><img xmlns="" align="fit" area="16" use="cardpicture"/><fld xmlns="" prop="name" align="left" dir="ltr" style="b" color="000000" size="10"/><fld xmlns="" prop="org" align="left" dir="ltr" color="000000" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="email" align="left" dir="ltr" color="d48d2a" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/></card>
+REV:20170627T133555Z
+END:VCARD
